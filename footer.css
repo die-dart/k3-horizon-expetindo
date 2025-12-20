@@ -1,0 +1,189 @@
+/* Footer Styles */
+.footer {
+    background-color: #1562BC;
+    padding: 80px 20px;
+    color: #ffffff;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+}
+
+/* ===== COLUMN 1: BRAND / INFO ===== */
+.footer-brand {
+    padding-right: 20px;
+}
+
+.footer-brand-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.footer-brand-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== COLUMNS 2-4: LINKS ===== */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li {
+    margin: 0;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    opacity: 1;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+
+/* ===== LANGUAGE SELECTOR ===== */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.language-selector:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.language-flag {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.language-text {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.language-arrow {
+    width: 16px;
+    height: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet - 2 columns */
+@media (max-width: 992px) {
+    .footer {
+        padding: 60px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        max-width: 600px;
+    }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand {
+        grid-column: 1;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-brand-title {
+        font-size: 1.4rem;
+    }
+
+    .footer-heading {
+        font-size: 1rem;
+    }
+
+    .language-selector {
+        margin-bottom: 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .footer {
+        padding: 40px 16px;
+    }
+
+    .footer-container {
+        gap: 28px;
+    }
+
+    .footer-brand-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-brand-text,
+    .footer-link {
+        font-size: 0.9rem;
+    }
+
+    .language-selector {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
