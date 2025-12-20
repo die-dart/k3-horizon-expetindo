@@ -299,3 +299,37 @@
         transition: none;
     }
 }
+
+
+
+/* --- Client Reviews & Testimonials Section --- */
+#reviews-testimonials {
+    padding: 100px 0;
+    /* Clear visual separator */
+    background-color: var(--card-bg);
+    /* Use theme card bg or distinct section bg */
+    border-top: 1px solid var(--border-color);
+}
+
+.section-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.elfsight-widget-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    min-height: 400px;
+}
