@@ -306,7 +306,7 @@
 #reviews-testimonials {
     padding: 100px 0;
     /* Clear visual separator */
-    background-color: var(--card-bg);
+    background-color: #ffffff;
     /* Use theme card bg or distinct section bg */
     border-top: 1px solid var(--border-color);
 }
