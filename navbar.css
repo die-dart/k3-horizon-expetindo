@@ -385,6 +385,20 @@ body {
     .hero-description {
         font-size: 1rem;
     }
+
+    .marquee-row {
+        gap: 1.5rem;
+    }
+
+    .marquee-content {
+        gap: 2rem;
+        padding-right: 2rem;
+    }
+
+    .partner-logo {
+        width: 80px;
+        /* Smaller on mobile */
+    }
 }
 
 @media (max-width: 480px) {
