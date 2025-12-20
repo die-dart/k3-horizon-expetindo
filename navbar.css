@@ -448,3 +448,128 @@ body {
         text-align: center;
     }
 }
+
+/* --- Client Showcase Section --- */
+.clients-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+
+.marquee-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    /* Gradient Mask for fading edges */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-row {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 3rem;
+    /* Space between logos */
+    animation: scroll linear infinite;
+
+    /* CRITICAL: ensures content doesn't wrap and has correct width for calculation */
+    width: max-content;
+    padding-right: 3rem;
+    /* Must match gap to ensure perfect infinite loop seam */
+    will-change: transform;
+}
+
+/* Scroll Animations */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Moves exactly half the total width of the content. 
+       Since content has 2 identical sets, moving 50% shifts set 2 to start position. */
+        transform: translateX(calc(-50% - 1.5rem));
+        /* Adjust for half gap if needed, but usually -50% of total width including padding works if padding is carefully handled. Actually, simply -50% of the element width is proper if the element contains exactly 2 repeated sequences and total width is sum of all. */
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Speed Modifiers */
+.marquee-row.slow .marquee-content {
+    animation-duration: 40s;
+}
+
+.marquee-row.fast .marquee-content {
+    animation-duration: 25s;
+}
+
+/* Directions */
+.marquee-row.reverse .marquee-content {
+    animation-name: scroll-reverse;
+}
+
+/* Animation on Hover - Optional pause */
+.marquee-wrapper:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+        animation-play-state: paused;
+    }
+}
+
+/* Logos */
+.partner-logo {
+    height: auto;
+    width: 100px;
+    /* Fixed width as requested */
+    max-height: 60px;
+    /* Constrain height */
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%) opacity(1) invert(0);
+    transform: scale(1.1);
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1A3A52;
+    margin: 0;
+}
