@@ -1,4 +1,4 @@
-/* Footer Styles */
+/* ===== FOOTER ===== */
 .footer {
     background-color: #1562BC;
     padding: 80px 20px;
@@ -113,9 +113,7 @@
     flex-shrink: 0;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablet - 2 columns */
+/* ===== RESPONSIVE DESIGN: TABLET (2 COLUMNS) ===== */
 @media (max-width: 992px) {
     .footer {
         padding: 60px 20px;
@@ -133,7 +131,7 @@
     }
 }
 
-/* Mobile - 1 column */
+/* ===== RESPONSIVE DESIGN: MOBILE (1 COLUMN) ===== */
 @media (max-width: 768px) {
     .footer {
         padding: 50px 20px;
@@ -163,7 +161,7 @@
     }
 }
 
-/* Small Mobile */
+/* ===== RESPONSIVE DESIGN: SMALL MOBILE ===== */
 @media (max-width: 480px) {
     .footer {
         padding: 40px 16px;

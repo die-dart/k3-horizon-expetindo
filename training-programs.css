@@ -1,4 +1,4 @@
-/* Training Programs Section */
+/* ===== TRAINING PROGRAMS SECTION ===== */
 .training-programs {
     background-color: #ffffff;
     padding: 80px 20px;
@@ -33,7 +33,7 @@
     text-align: left;
 }
 
-/* Navigation Controls */
+/* ===== CAROUSEL NAVIGATION CONTROLS ===== */
 .carousel-controls {
     display: flex;
     gap: 12px;
@@ -73,7 +73,7 @@
     border-color: #E5E7EB;
 }
 
-/* Carousel Container */
+/* ===== CAROUSEL CONTAINER ===== */
 .carousel-wrapper {
     position: relative;
     overflow: hidden;
@@ -85,7 +85,7 @@
     transition: transform 0.4s ease-in-out;
 }
 
-/* Training Cards */
+/* ===== TRAINING CARDS ===== */
 .training-card {
     flex: 0 0 calc(33.333% - 16px);
     background-color: #ffffff;
@@ -103,7 +103,7 @@
     transform: translateY(-4px);
 }
 
-/* Card Image */
+/* Card Image Section */
 .card-image {
     width: 100%;
     height: 200px;
@@ -117,6 +117,7 @@
     position: relative;
 }
 
+/* Different gradient for each card type */
 .card-image.bnsp {
     background: linear-gradient(135deg, #1A62B7 0%, #2D7DD2 100%);
 }
@@ -135,7 +136,7 @@
     object-fit: cover;
 }
 
-/* Card Content */
+/* Card Content Section */
 .card-content {
     padding: 24px;
     flex-grow: 1;
@@ -160,7 +161,7 @@
     flex-grow: 1;
 }
 
-/* Card Footer */
+/* Card Footer with Link */
 .card-footer {
     display: flex;
     justify-content: flex-end;
@@ -182,6 +183,7 @@
     color: #AD5B32;
 }
 
+/* Underline animation on link hover */
 .card-link::after {
     content: '';
     position: absolute;
@@ -197,17 +199,43 @@
     width: 100%;
 }
 
-/* Responsive Design - Tablet */
+/* ===== CLIENT REVIEWS & TESTIMONIALS SECTION ===== */
+#reviews-testimonials {
+    padding: 100px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #E5E7EB;
+}
+
+.section-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #6B7280;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.elfsight-widget-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    min-height: 400px;
+}
+
+/* ===== RESPONSIVE DESIGN: TABLET ===== */
 @media (max-width: 992px) {
     .training-programs {
         padding: 60px 20px;
     }
 
     .training-programs-title {
-        font-size: 36px;
-    }
-
-    .section-title {
         font-size: 36px;
     }
 
@@ -226,7 +254,7 @@
     }
 }
 
-/* Responsive Design - Mobile */
+/* ===== RESPONSIVE DESIGN: MOBILE ===== */
 @media (max-width: 640px) {
     .training-programs {
         padding: 50px 16px;
@@ -240,10 +268,6 @@
     }
 
     .training-programs-title {
-        font-size: 28px;
-    }
-
-    .section-title {
         font-size: 28px;
     }
 
@@ -276,7 +300,8 @@
     }
 }
 
-/* Touch Device Support */
+/* ===== TOUCH DEVICE SUPPORT ===== */
+/* Enable native swipe scrolling on touch devices */
 @media (hover: none) and (pointer: coarse) {
     .carousel-wrapper {
         overflow-x: auto;
@@ -298,38 +323,4 @@
     .carousel-track {
         transition: none;
     }
-}
-
-
-
-/* --- Client Reviews & Testimonials Section --- */
-#reviews-testimonials {
-    padding: 100px 0;
-    /* Clear visual separator */
-    background-color: #ffffff;
-    /* Use theme card bg or distinct section bg */
-    border-top: 1px solid var(--border-color);
-}
-
-.section-hero {
-    text-align: center;
-    margin-bottom: 60px;
-    padding: 0 20px;
-}
-
-.section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.elfsight-widget-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    min-height: 400px;
 }

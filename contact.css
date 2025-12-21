@@ -1,4 +1,4 @@
-/* Contact Section Styles */
+/* ===== CONTACT SECTION ===== */
 .contact-section {
     background-color: #ffffff;
     padding: 80px 20px;
@@ -171,7 +171,7 @@
     margin: 32px 0;
 }
 
-/* Social Section */
+/* ===== SOCIAL SECTION ===== */
 .social-section {
     margin-top: 32px;
 }
@@ -212,9 +212,7 @@
     flex-shrink: 0;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablet */
+/* ===== RESPONSIVE DESIGN: TABLET ===== */
 @media (max-width: 992px) {
     .contact-container {
         gap: 60px;
@@ -229,7 +227,7 @@
     }
 }
 
-/* Mobile */
+/* ===== RESPONSIVE DESIGN: MOBILE ===== */
 @media (max-width: 768px) {
     .contact-section {
         padding: 60px 20px;
@@ -269,7 +267,7 @@
     }
 }
 
-/* Small Mobile */
+/* ===== RESPONSIVE DESIGN: SMALL MOBILE ===== */
 @media (max-width: 480px) {
     .contact-section {
         padding: 40px 16px;

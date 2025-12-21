@@ -12,402 +12,412 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <!-- Left Side: Logo and Company Name -->
-            <div class="navbar-brand">
-                <img src="logo-he-white2.png" alt="Logo" class="navbar-logo">
-                <span class="navbar-company-name">PT Horizon Solusi Expertindo</span>
+    <!-- ===== HEADER: NAVIGATION BAR ===== -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Left Side: Logo and Company Name -->
+                <div class="navbar-brand">
+                    <img src="logo-he-white2.png" alt="PT Horizon Solusi Expertindo Logo" class="navbar-logo">
+                    <span class="navbar-company-name">PT Horizon Solusi Expertindo</span>
+                </div>
+
+                <!-- Right Side: Menu Items and Contact Button -->
+                <div class="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#about" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="#services" class="nav-link">Layanan</a></li>
+                        <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#feedback" class="nav-link">Feedback</a></li>
+                    </ul>
+                    <a href="#contact" class="btn-contact">Hubungi Kami</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
+        </nav>
+    </header>
 
-            <!-- Right Side: Menu Items and Contact Button -->
-            <div class="navbar-menu">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="#feedback" class="nav-link">Feedback</a></li>
-                    <li class="nav-item"><a href="#faq" class="nav-link">F.A.Q.</a></li>
-                </ul>
-                <a href="#contact" class="btn-contact">Contact Us</a>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-container">
-            <div class="hero-card">
-                <div class="hero-label">✦ Training & Certification</div>
-                <h1 class="hero-headline">Improve your Skills</h1>
-                <p class="hero-description">
-                    Enhance your professional capabilities with our comprehensive training programs.
-                    We provide industry-leading certification courses designed to elevate your expertise
-                    and advance your career in safety and operational excellence.
-                </p>
-                <a href="#register" class="hero-cta">Register a class</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Programs Section -->
-    <section class="training-programs">
-        <div class="training-programs-container">
-            <!-- Section Header -->
-            <div class="training-programs-header">
-                <h2 class="training-programs-title">Program Pelatihan</h2>
-                <div class="carousel-controls">
-                    <button class="carousel-btn carousel-prev" aria-label="Previous">
-                        ←
-                    </button>
-                    <button class="carousel-btn carousel-next" aria-label="Next">
-                        →
-                    </button>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- ===== SECTION: HERO ===== -->
+        <section class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-container">
+                <div class="hero-card">
+                    <div class="hero-label">✦ Program Pelatihan & Sertifikasi</div>
+                    <h1 class="hero-headline">Tingkatkan Keterampilan Anda</h1>
+                    <p class="hero-description">
+                        Tingkatkan kemampuan profesional Anda dengan program pelatihan komprehensif kami.
+                        Kami menyediakan kursus sertifikasi terkemuka di industri yang dirancang untuk meningkatkan
+                        keahlian Anda dan memajukan karier Anda di bidang keselamatan dan keunggulan operasional.
+                    </p>
+                    <a href="#register" class="hero-cta">Daftar kelas</a>
                 </div>
             </div>
+        </section>
 
-            <!-- Carousel -->
-            <div class="carousel-wrapper">
-                <div class="carousel-track">
-                    <!-- Card 1: BNSP -->
-                    <div class="training-card">
-                        <div class="card-image bnsp">
-                            <span>BNSP Training</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">BNSP</h3>
-                            <p class="card-description">
-                                Professional certification program recognized by Indonesia's National Professional
-                                Certification Agency.
-                                Enhance your credentials with industry-standard competency assessments.
-                            </p>
-                            <div class="card-footer">
-                                <a href="#bnsp" class="card-link">More.</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: Kemnaker RI -->
-                    <div class="training-card">
-                        <div class="card-image kemnaker">
-                            <span>Kemnaker RI Training</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Kemnaker RI</h3>
-                            <p class="card-description">
-                                Official certification from Indonesia's Ministry of Manpower. Government-recognized
-                                training
-                                programs designed to meet regulatory compliance and workforce development standards.
-                            </p>
-                            <div class="card-footer">
-                                <a href="#kemnaker" class="card-link">More.</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Non Sertifikasi -->
-                    <div class="training-card">
-                        <div class="card-image non-cert">
-                            <span>General Training</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Non Sertifikasi</h3>
-                            <p class="card-description">
-                                Flexible professional development workshops and training sessions. Build practical
-                                skills
-                                and knowledge without formal certification requirements for continuous learning.
-                            </p>
-                            <div class="card-footer">
-                                <a href="#non-cert" class="card-link">More.</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Additional Program Example -->
-                    <div class="training-card">
-                        <div class="card-image bnsp">
-                            <span>Advanced Training</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Advanced BNSP</h3>
-                            <p class="card-description">
-                                Advanced professional certification for experienced practitioners. Take your expertise
-                                to the next level with specialized competency assessments and training.
-                            </p>
-                            <div class="card-footer">
-                                <a href="#advanced-bnsp" class="card-link">More.</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 5: Additional Program Example -->
-                    <div class="training-card">
-                        <div class="card-image kemnaker">
-                            <span>Safety Training</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">K3 Certification</h3>
-                            <p class="card-description">
-                                Occupational Health and Safety certification programs. Meet workplace safety
-                                requirements
-                                with comprehensive training in hazard prevention and risk management.
-                            </p>
-                            <div class="card-footer">
-                                <a href="#k3" class="card-link">More.</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Client & Partner Showcase -->
-    <section class="clients-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Mitra & Klien Kami</h2>
-            </div>
-
-            <div class="marquee-wrapper">
-                <!-- Row 1: Slow -->
-                <div class="marquee-row slow">
-                    <div class="marquee-content">
-                        <!-- Set 1 -->
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <!-- Set 2 (Duplicate for loop) -->
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
-                        <img src="op.png" alt="Partner Logo" class="partner-logo">
+        <!-- ===== SECTION: TRAINING PROGRAMS ===== -->
+        <section class="training-programs">
+            <div class="training-programs-container">
+                <!-- Section Header -->
+                <div class="training-programs-header">
+                    <h2 class="training-programs-title">Program Pelatihan</h2>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" aria-label="Previous slide">
+                            ←
+                        </button>
+                        <button class="carousel-btn carousel-next" aria-label="Next slide">
+                            →
+                        </button>
                     </div>
                 </div>
 
+                <!-- Carousel Container -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <!-- Training Card 1: BNSP -->
+                        <article class="training-card">
+                            <div class="card-image bnsp">
+                                <span>BNSP Training</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">BNSP</h3>
+                                <p class="card-description">
+                                    Program sertifikasi profesional yang dikenal oleh Badan Nasional Sertifikasi
+                                    Profesi. Tambahkan kredensial Anda dengan penilaian kompetensi industri
+                                    standar.
+                                </p>
+                                <div class="card-footer">
+                                    <a href="#bnsp" class="card-link">More.</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Training Card 2: Kemnaker RI -->
+                        <article class="training-card">
+                            <div class="card-image kemnaker">
+                                <span>Kemnaker RI Training</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Kemnaker RI</h3>
+                                <p class="card-description">
+                                    Sertifikasi resmi dari Kementerian Tenaga Kerja Republik Indonesia. Program
+                                    pelatihan
+                                    yang diakui pemerintah dirancang untuk memenuhi standar kompliance regulasi dan
+                                    pengembangan tenaga kerja.
+                                </p>
+                                <div class="card-footer">
+                                    <a href="#kemnaker" class="card-link">More.</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Training Card 3: Non Sertifikasi -->
+                        <article class="training-card">
+                            <div class="card-image non-cert">
+                                <span>General Training</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Non Sertifikasi</h3>
+                                <p class="card-description">
+                                    Workshop dan pelatihan profesional yang fleksibel. Bangun keterampilan praktis dan
+                                    pengetahuan tanpa persyaratan sertifikasi formal untuk belajar terus-menerus.
+                                </p>
+                                <div class="card-footer">
+                                    <a href="#non-cert" class="card-link">More.</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Training Card 4: Advanced BNSP -->
+                        <article class="training-card">
+                            <div class="card-image bnsp">
+                                <span>Advanced Training</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Advanced BNSP</h3>
+                                <p class="card-description">
+                                    Sertifikasi profesional lanjutan untuk praktisi yang berpengalaman. Tingkatkan
+                                    pengetahuan
+                                    Anda dengan penilaian kompetensi spesialisasi dan pelatihan.
+                                </p>
+                                <div class="card-footer">
+                                    <a href="#advanced-bnsp" class="card-link">More.</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Training Card 5: K3 Certification -->
+                        <article class="training-card">
+                            <div class="card-image kemnaker">
+                                <span>Safety Training</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">K3 Certification</h3>
+                                <p class="card-description">
+                                    Program sertifikasi keselamatan dan kesehatan tempat kerja. Pastikan keamanan tempat
+                                    kerja
+                                    dengan pelatihan komprehensif tentang pencegahan bahaya dan manajemen risiko.
+                                </p>
+                                <div class="card-footer">
+                                    <a href="#k3" class="card-link">More.</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- ===== SECTION: CLIENT & PARTNER SHOWCASE ===== -->
+        <section class="clients-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Mitra & Klien Kami</h2>
+                </div>
 
-    <!-- Client Reviews & Testimonials Section -->
-    <section id="reviews-testimonials">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">Dipercaya oleh Para Ahli</h2>
-                <p class="section-subtitle">Lihat apa kata mitra dan klien kami tentang pengalaman mereka dengan Horizon
-                    Expertindo.</p>
+                <!-- Marquee Wrapper with Infinite Scroll -->
+                <div class="marquee-wrapper">
+                    <div class="marquee-row slow">
+                        <div class="marquee-content">
+                            <!-- Set 1: Original logos -->
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <!-- Set 2: Duplicate for seamless loop -->
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                            <img src="op.png" alt="Partner Logo" class="partner-logo">
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
+        <!-- ===== SECTION: CLIENT REVIEWS & TESTIMONIALS ===== -->
+        <section id="reviews-testimonials">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Dipercaya oleh Para Ahli</h2>
+                    <p class="section-subtitle">
+                        Lihat apa kata mitra dan klien kami tentang pengalaman mereka dengan Horizon Expertindo.
+                    </p>
+                </div>
 
-            <div class="elfsight-widget-wrapper">
-                <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-c1520bd2-de7e-4a80-8f46-879a8af270fa" data-elfsight-app-lazy></div>
+                <!-- Third-party Widget: Elfsight Google Reviews -->
+                <div class="elfsight-widget-wrapper">
+                    <script src="https://elfsightcdn.com/platform.js" async></script>
+                    <div class="elfsight-app-c1520bd2-de7e-4a80-8f46-879a8af270fa" data-elfsight-app-lazy></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- Google Maps Section -->
-    <section class="location-section" style="padding: 60px 0;">
-        <div class="section-container">
-            <div>
-                <div class="map-container" style="border-radius: 15px; overflow: hidden; ">
+        <!-- ===== SECTION: LOCATION (GOOGLE MAPS) ===== -->
+        <section class="location-section">
+            <div class="section-container">
+                <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.812604323758!2d110.45049107455416!3d-7.813114392207106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aead85e78b007%3A0xc30576ad9a269608!2sPT%20Horizon%20Solusi%20Expertindo%20%7C%7C%20Training%20%26%20Sertifikasi%20BNSP!5e0!3m2!1sid!2sid!4v1702824000000!5m2!1sid!2sid"
                         width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="PT Horizon Solusi Expertindo Office Location">
                     </iframe>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section Start -->
-    <section class="contact-section">
-        <div class="contact-container">
-            <!-- Left Column: Contact Form -->
-            <div class="contact-form-column">
-                <h2 class="contact-main-heading">Drop Us a Line</h2>
-                <p class="contact-subtitle">We are always looking for a next great project</p>
+        <!-- ===== SECTION: CONTACT ===== -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container">
+                <!-- Left Column: Contact Form -->
+                <div class="contact-form-column">
+                    <h2 class="contact-main-heading">Hubungi Kami</h2>
+                    <p class="contact-subtitle">Kami selalu mencari proyek hebat berikutnya.</p>
 
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label class="form-label">E-MAIL</label>
-                        <input type="email" class="form-input" placeholder="Your email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">MESSAGE</label>
-                        <textarea class="form-textarea" placeholder="Drop us a line" rows="5" required></textarea>
-                    </div>
-
-                    <div class="form-group-inline">
-                        <div class="form-group-name">
-                            <label class="form-label">NAME</label>
-                            <input type="text" class="form-input" placeholder="Your name" required>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">E-MAIL</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="Email Anda" required>
                         </div>
-                        <button type="submit" class="btn-submit">Send</button>
-                    </div>
-                </form>
-            </div>
 
-            <!-- Right Column: Contact Information -->
-            <div class="contact-info-column">
-                <h2 class="contact-info-heading">Get in Touch</h2>
-                <p class="contact-info-text">We appreciate each customer and we are proud that 60% of clients come back
-                    to work with us again.</p>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-message">PESAN</label>
+                            <textarea id="contact-message" class="form-textarea" placeholder="Pesan Anda" rows="5"
+                                required></textarea>
+                        </div>
 
-                <div class="contact-details">
-                    <div class="contact-detail-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span>+1 555 505 5050</span>
-                    </div>
-
-                    <div class="contact-detail-item">
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <span>info@designmodo.com</span>
-                    </div>
+                        <div class="form-group-inline">
+                            <div class="form-group-name">
+                                <label class="form-label" for="contact-name">NAMA</label>
+                                <input type="text" id="contact-name" class="form-input" placeholder="Nama Anda"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn-submit">Kirim</button>
+                        </div>
+                    </form>
                 </div>
 
-                <hr class="contact-divider">
+                <!-- Right Column: Contact Information -->
+                <div class="contact-info-column">
+                    <h2 class="contact-info-heading">Hubungi Kami</h2>
+                    <p class="contact-info-text">
+                        Kami menghargai setiap pelanggan dan kami bangga bahwa 60% dari klien datang kembali untuk
+                        bekerja dengan kami lagi.
+                    </p>
 
-                <div class="social-section">
-                    <h3 class="social-heading">We are on Socials</h3>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
+                    <!-- Contact Details -->
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
                                 <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
-                            <span>Facebook</span>
-                        </a>
+                            <span>+1 555 505 5050</span>
+                        </div>
 
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        <div class="contact-detail-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
-                            <span>Twitter</span>
-                        </a>
+                            <span>info@designmodo.com</span>
+                        </div>
+                    </div>
 
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 19a1.5 1.5 0 111.5-1.5A1.5 1.5 0 0112 19zm1.5-4.5h-3v-9h3z" />
-                            </svg>
-                            <span>Pinterest</span>
-                        </a>
+                    <hr class="contact-divider">
 
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.81zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855z" />
-                            </svg>
-                            <span>Dribbble</span>
-                        </a>
+                    <!-- Social Media Links -->
+                    <div class="social-section">
+                        <h3 class="social-heading">Social Media Kami</h3>
 
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V6.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11.988h3.318c2.162 0 2.34-3.269 0-3.269H3v3.269zm0 9h3.318c3.032 0 3.1-4 0-4H3v4z" />
-                            </svg>
-                            <span>Behance</span>
-                        </a>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                                <span>Facebook</span>
+                            </a>
 
-                        <a href="#" class="social-link">
-                            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                            <span>LinkedIn</span>
-                        </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                </svg>
+                                <span>Twitter</span>
+                            </a>
+
+                            <a href="#" class="social-link" aria-label="Pinterest">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 19a1.5 1.5 0 111.5-1.5A1.5 1.5 0 0112 19zm1.5-4.5h-3v-9h3z" />
+                                </svg>
+                                <span>Pinterest</span>
+                            </a>
+
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.81zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855z" />
+                                </svg>
+                                <span>Dribbble</span>
+                            </a>
+
+                            <a href="#" class="social-link" aria-label="Behance">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V6.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11.988h3.318c2.162 0 2.34-3.269 0-3.269H3v3.269zm0 9h3.318c3.032 0 3.1-4 0-4H3v4z" />
+                                </svg>
+                                <span>Behance</span>
+                            </a>
+
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Contact Section End -->
+        </section>
+    </main>
 
-    <!-- Footer Start -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-container">
             <!-- Column 1: Brand / Info -->
             <div class="footer-column footer-brand">
-                <h3 class="footer-brand-title">Startup 3</h3>
-                <p class="footer-brand-text">Be sure to take a look at our Terms of Use and Privacy Policy</p>
+                <h3 class="footer-brand-title">PT. Horizon Expetindo</h3>
+                <p class="footer-brand-text">Terima kasih telah menghubungi kami. Kami akan segera memproses pesan Anda.
+                </p>
             </div>
 
             <!-- Column 2: Product -->
             <div class="footer-column">
-                <h4 class="footer-heading">Product</h4>
+                <h4 class="footer-heading">Produk</h4>
                 <ul class="footer-links">
-                    <li><a href="#features" class="footer-link">Features</a></li>
-                    <li><a href="#pricing" class="footer-link">Pricing</a></li>
-                    <li><a href="#tour" class="footer-link">Tour</a></li>
+                    <li><a href="#features" class="footer-link">Fitur</a></li>
+                    <li><a href="#pricing" class="footer-link">Biaya</a></li>
                 </ul>
             </div>
 
             <!-- Column 3: Work -->
             <div class="footer-column">
-                <h4 class="footer-heading">Work</h4>
+                <h4 class="footer-heading">Kontak</h4>
                 <ul class="footer-links">
-                    <li><a href="#portfolio" class="footer-link">Our Portfolio</a></li>
-                    <li><a href="#latest" class="footer-link">Latest Work</a></li>
-                    <li><a href="#brands" class="footer-link">Brands</a></li>
+                    <li><a href="#portfolio" class="footer-link">Email</a></li>
+                    <li><a href="#latest" class="footer-link">Whatsapp</a></li>
                 </ul>
             </div>
 
             <!-- Column 4: Stuff & Language -->
             <div class="footer-column">
                 <!-- Language Selector -->
-                <div class="language-selector">
-                    <svg class="language-flag" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="language-selector" role="button" tabindex="0" aria-label="Language selector">
+                    <svg class="language-flag" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
                         <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
                         <path
                             d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
                             stroke="currentColor" stroke-width="2" />
                     </svg>
                     <span class="language-text">English</span>
-                    <svg class="language-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="language-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
                         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
                 </div>
 
-                <h4 class="footer-heading">Stuff</h4>
+                <h4 class="footer-heading">Lainnya</h4>
                 <ul class="footer-links">
                     <li><a href="#privacy" class="footer-link">Privacy</a></li>
                     <li><a href="#support" class="footer-link">Support</a></li>
@@ -417,9 +427,8 @@
             </div>
         </div>
     </footer>
-    <!-- Footer End -->
 
-
+    <!-- ===== SCRIPTS ===== -->
     <script src="navbar.js"></script>
     <script src="training-programs.js"></script>
 </body>
