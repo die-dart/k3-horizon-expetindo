@@ -1,0 +1,326 @@
+/* ===== TRAINING PROGRAMS SECTION ===== */
+.training-programs {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.training-programs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.training-programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.section-header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.training-programs-title {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #1A3A52;
+    margin: 0;
+    text-align: left;
+}
+
+/* ===== CAROUSEL NAVIGATION CONTROLS ===== */
+.carousel-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #E5E7EB;
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #6B7280;
+    font-size: 20px;
+}
+
+.carousel-btn:hover {
+    border-color: #1A62B7;
+    background-color: #F3F4F6;
+    color: #1A62B7;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #E5E7EB;
+    background-color: #ffffff;
+    color: #9CA3AF;
+}
+
+.carousel-btn:disabled:hover {
+    background-color: #ffffff;
+    border-color: #E5E7EB;
+}
+
+/* ===== CAROUSEL CONTAINER ===== */
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* ===== TRAINING CARDS ===== */
+.training-card {
+    flex: 0 0 calc(33.333% - 16px);
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.training-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+/* Card Image Section */
+.card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1A62B7 0%, #97ABBF 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Different gradient for each card type */
+.card-image.bnsp {
+    background: linear-gradient(135deg, #1A62B7 0%, #2D7DD2 100%);
+}
+
+.card-image.kemnaker {
+    background: linear-gradient(135deg, #AD5B32 0%, #C97A4E 100%);
+}
+
+.card-image.non-cert {
+    background: linear-gradient(135deg, #97ABBF 0%, #B8C7D4 100%);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card Content Section */
+.card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0 0 12px 0;
+}
+
+.card-description {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6B7280;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+/* Card Footer with Link */
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid #F3F4F6;
+}
+
+.card-link {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A62B7;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.card-link:hover {
+    color: #AD5B32;
+}
+
+/* Underline animation on link hover */
+.card-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #AD5B32;
+    transition: width 0.3s ease;
+}
+
+.card-link:hover::after {
+    width: 100%;
+}
+
+/* ===== CLIENT REVIEWS & TESTIMONIALS SECTION ===== */
+#reviews-testimonials {
+    padding: 100px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #E5E7EB;
+}
+
+.section-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #6B7280;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.elfsight-widget-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    min-height: 400px;
+}
+
+/* ===== RESPONSIVE DESIGN: TABLET ===== */
+@media (max-width: 992px) {
+    .training-programs {
+        padding: 60px 20px;
+    }
+
+    .training-programs-title {
+        font-size: 36px;
+    }
+
+    .training-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+
+    .carousel-controls {
+        gap: 10px;
+    }
+
+    .carousel-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+}
+
+/* ===== RESPONSIVE DESIGN: MOBILE ===== */
+@media (max-width: 640px) {
+    .training-programs {
+        padding: 50px 16px;
+    }
+
+    .training-programs-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .training-programs-title {
+        font-size: 28px;
+    }
+
+    .carousel-controls {
+        align-self: flex-end;
+    }
+
+    .training-card {
+        flex: 0 0 100%;
+    }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-description {
+        font-size: 14px;
+    }
+
+    .carousel-track {
+        gap: 16px;
+    }
+}
+
+/* ===== TOUCH DEVICE SUPPORT ===== */
+/* Enable native swipe scrolling on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .carousel-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .training-card {
+        scroll-snap-align: start;
+    }
+
+    .carousel-track {
+        transition: none;
+    }
+}
