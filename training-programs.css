@@ -261,14 +261,14 @@
     }
 
     .training-programs-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
         margin-bottom: 40px;
     }
 
     .training-programs-title {
-        font-size: 28px;
+        text-align: center;
     }
 
     .carousel-controls {
@@ -285,6 +285,8 @@
 
     .card-content {
         padding: 20px;
+        text-align: center;
+        align-items: center;
     }
 
     .card-title {
@@ -293,6 +295,11 @@
 
     .card-description {
         font-size: 14px;
+    }
+
+    .card-footer {
+        justify-content: center;
+        align-self: stretch;
     }
 
     .carousel-track {

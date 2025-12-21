@@ -53,7 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function updateCarousel() {
         const cardWidth = cards[0].offsetWidth;
-        const gap = 24; // Must match CSS gap value
+
+        // Dynamically get the gap from CSS to ensure precision across breakpoints
+        const computedStyle = window.getComputedStyle(track);
+        const gap = parseInt(computedStyle.gap) || 0;
+
         const offset = currentIndex * (cardWidth + gap);
 
         // Apply transform to slide carousel
