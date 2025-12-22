@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="blog.css">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -48,105 +50,14 @@
     <main>
         <section class="blog-header">
             <h1 class="blog-title">Jelajahi Blog kami</h1>
-            <div class="category-filters">
+            <div class="category-filters" id="category-filters-container">
                 <button class="category-btn active" data-target="all">Semua</button>
-                <button class="category-btn" data-target="regulasi">Regulasi & Standar</button>
-                <button class="category-btn" data-target="lingkungan">Lingkungan Hidup (Environment)</button>
-                <button class="category-btn" data-target="teknis">Teknis Keselamatan (Safety)</button>
-                <button class="category-btn" data-target="kesehatan">Kesehatan Kerja (Health)</button>
-                <button class="category-btn" data-target="manajemen">Manajemen Risiko</button>
-                <button class="category-btn" data-target="darurat">Tanggap Darurat (Emergency)</button>
+                <!-- Categories will be loaded here -->
             </div>
         </section>
 
-        <div class="blog-grid">
-
-            <!-- Blog Post 1 -->
-            <article class="post-card" data-category="regulasi">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Modern Workspace" class="post-image">
-                </a>
-                <h2 class="post-title">The Future of Minimalist Workspace: Balancing Form and Functionality</h2>
-                <p class="post-excerpt">In the contemporary era of remote work, the design of our personal office spaces
-                    has evolved from mere necessity to a reflection of our creative psyche. We explore how vibrant
-                    colors can enhance productivity without compromising on a clean aesthetic.</p>
-                <div class="post-meta">
-                    <span class="post-date">19 DEC 2025</span>
-                </div>
-            </article>
-
-            <!-- Blog Post 2 -->
-            <article class="post-card" data-category="regulasi">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Editorial Post" class="post-image">
-                </a>
-                <h2 class="post-title">Architectural Narratives: How Sharp Lines Define Modern Urban Landscapes</h2>
-                <p class="post-excerpt">Urban architecture is shifting towards a more bold and uncompromising style.
-                    Sharp edges and vibrant contrasts are no longer just trends; they are the new language of the city.
-                </p>
-                <div class="post-meta">
-                    <span class="post-date">18 DEC 2025</span>
-                </div>
-            </article>
-
-            <!-- Blog Post 3 -->
-            <article class="post-card" data-category="lingkungan">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Editorial Post" class="post-image">
-                </a>
-                <h2 class="post-title">Digital Craftsmanship in the Age of High Resolution Displays</h2>
-                <p class="post-excerpt">With the advent of 4k and 8k displays, the level of detail expected from web
-                    designers has reached unprecedented heights. We dive into the techniques that make a landing page
-                    truly premium.</p>
-                <div class="post-meta">
-                    <span class="post-date">17 DEC 2025</span>
-                </div>
-            </article>
-
-            <!-- Blog Post 4 -->
-            <article class="post-card" data-category="teknis">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Editorial Post" class="post-image">
-                </a>
-                <h2 class="post-title">The Color of Innovation: Why Vibrancy Matters in Contemporary UI</h2>
-                <p class="post-excerpt">Monochrome design is taking a backseat as vibrant, curated color palettes take
-                    the lead. Discover why your next project should embrace the spectrum.</p>
-                <div class="post-meta">
-                    <span class="post-date">16 DEC 2025</span>
-                </div>
-            </article>
-
-            <!-- Blog Post 5 -->
-            <article class="post-card" data-category="kesehatan">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Editorial Post" class="post-image">
-                </a>
-                <h2 class="post-title">Sustainable Travel: Finding Beauty in the Geometric Silhouettes of Nature</h2>
-                <p class="post-excerpt">Journey with us to the most remote corners of the globe where nature's own
-                    design principles create high-resolution landscapes that defy description.</p>
-                <div class="post-meta">
-                    <span class="post-date">15 DEC 2025</span>
-                </div>
-            </article>
-
-            <!-- Blog Post 6 -->
-            <article class="post-card" data-category="manajemen">
-                <a href="#" class="post-image-link">
-                    <img src="/Users/mac/.gemini/antigravity/brain/f7ed41e6-7290-4aa6-ba6b-d306455d8cad/blog_post_1_1766288903769.png"
-                        alt="Editorial Post" class="post-image">
-                </a>
-                <h2 class="post-title">Curation vs. Creation: The New Role of the Modern Editor</h2>
-                <p class="post-excerpt">In an era of information overload, the power lies in selection. Understanding
-                    the intersection of fine art and digital media.</p>
-                <div class="post-meta">
-                    <span class="post-date">14 DEC 2025</span>
-                </div>
-            </article>
+        <div class="blog-grid" id="blog-grid-container">
+            <!-- Articles will be loaded here -->
         </div>
 
         <div id="empty-state" class="empty-state hidden">
@@ -229,19 +140,117 @@
     <!-- ===== SCRIPTS ===== -->
     <script src="navbar.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Supabase configuration
+        const SUPABASE_URL = 'https://fjzzbrqxkprsxjqlpqly.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_c4qv84Kkzdb6g7KJCnyEfg_eeOEFmfx';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function fetchCategories() {
+            const container = document.getElementById('category-filters-container');
+
+            try {
+                let { data: article_categories, error } = await supabaseClient
+                    .from('article_categories')
+                    .select('*');
+
+                if (error) throw error;
+
+                if (article_categories) {
+                    article_categories.forEach(category => {
+                        const button = document.createElement('button');
+                        button.className = 'category-btn';
+
+                        // Use category_name or id as the filtering target if slug is missing
+                        // The existing blog posts use lowercase slugs, so we lowercase the name
+                        const filterTarget = category.slug || category.category_name?.toLowerCase() || category.id;
+
+                        button.setAttribute('data-target', filterTarget);
+                        button.textContent = category.category_name || category.name || `Category ${category.id}`;
+                        container.appendChild(button);
+                    });
+
+                    // Re-initialize filtering logic for new buttons
+                    initFiltering();
+                }
+            } catch (err) {
+                console.error('Error fetching categories:', err.message);
+                // Fallback: Add some default buttons if API fails or keep it clean
+            }
+        }
+
+        async function fetchArticles() {
+            const grid = document.getElementById('blog-grid-container');
+
+            try {
+                let { data: articles, error } = await supabaseClient
+                    .from('articles')
+                    .select('*')
+                    .order('published_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (articles) {
+                    grid.innerHTML = ''; // Clear static ones
+                    articles.forEach(article => {
+                        const date = new Date(article.published_at);
+                        const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
+
+                        const card = `
+                            <article class="post-card" data-category="${article.category?.toLowerCase()}">
+                                <a href="article.html?id=${article.id}" class="post-image-link">
+                                    <img src="${convertDriveLink(article.thumbnail)}" alt="${article.title}" class="post-image">
+                                </a>
+                                <h2 class="post-title">${article.title}</h2>
+                                <p class="post-excerpt">${sanitizeExcerpt(article.content)}</p>
+                                <div class="post-meta">
+                                    <span class="post-date">${formattedDate}</span>
+                                </div>
+                            </article>
+                        `;
+                        grid.insertAdjacentHTML('beforeend', card);
+                    });
+                    initFiltering();
+                }
+            } catch (err) {
+                console.error('Error fetching articles:', err.message);
+            }
+        }
+
+        function sanitizeExcerpt(html) {
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            const text = temp.textContent || temp.innerText || "";
+            return text.substring(0, 150) + "...";
+        }
+
+        function convertDriveLink(url) {
+            if (!url) return '';
+            if (url.includes('drive.google.com')) {
+                const idMatch = url.match(/\/d\/(.+?)\//) || url.match(/id=(.+?)(&|$)/);
+                if (idMatch && idMatch[1]) {
+                    return `https://lh3.googleusercontent.com/u/0/d/${idMatch[1]}`;
+                }
+            }
+            return url;
+        }
+
+        function initFiltering() {
             const filterButtons = document.querySelectorAll('.category-btn');
             const posts = document.querySelectorAll('.post-card');
             const emptyState = document.getElementById('empty-state');
             const blogGrid = document.querySelector('.blog-grid');
 
             filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
+                // Remove existing listeners to avoid duplicates
+                const newButton = button.cloneNode(true);
+                button.parentNode.replaceChild(newButton, button);
 
-                    const target = button.getAttribute('data-target');
+                newButton.addEventListener('click', () => {
+                    // Update active button
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    newButton.classList.add('active');
+
+                    const target = newButton.getAttribute('data-target');
                     let visibleCount = 0;
 
                     posts.forEach(post => {
@@ -264,6 +273,11 @@
                     }
                 });
             });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchCategories();
+            fetchArticles();
         });
     </script>
 </body>
