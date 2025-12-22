@@ -51,6 +51,7 @@ body {
     width: auto;
     object-fit: contain;
     margin-right: auto;
+    filter: drop-shadow(1px 0px 0px rgba(255, 0, 0, 0.75)) drop-shadow(-1px 0px 0px rgba(0, 255, 255, 0.75));
 }
 
 .nav-logo {
@@ -69,6 +70,7 @@ body {
     white-space: nowrap;
     display: inline-block;
     line-height: 1;
+    text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.75), -1px 0px 0px rgba(0, 255, 255, 0.75);
 }
 
 /* Right Side: Menu Section */
@@ -96,6 +98,7 @@ body {
     font-weight: 500;
     transition: opacity 0.2s ease;
     position: relative;
+    text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.75), -1px 0px 0px rgba(0, 255, 255, 0.75);
 }
 
 .nav-link:hover {
@@ -130,6 +133,8 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     white-space: nowrap;
+    text-shadow: 1px 0px 0px rgba(255, 0, 0, 0.75), -1px 0px 0px rgba(0, 255, 255, 0.75);
+    box-shadow: 1px 0px 0px rgba(255, 0, 0, 0.3), -1px 0px 0px rgba(0, 255, 255, 0.3);
 }
 
 .btn-contact:hover {
@@ -446,6 +451,12 @@ body {
 
     .navbar-company-name {
         font-size: 0.85rem;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 1.2rem;
     }
 
     /* Mobile menu dropdown */
