@@ -157,13 +157,15 @@
 
                 if (article_categories) {
                     article_categories.forEach(category => {
-                        const button = document.createElement('button');
-                        button.className = 'category-btn';
-
-                        // Use category_name or id as the filtering target if slug is missing
-                        // The existing blog posts use lowercase slugs, so we lowercase the name
                         const filterTarget = category.slug || category.category_name?.toLowerCase() || category.id;
 
+                        // Check if button already exists
+                        if (container.querySelector(`[data-target="${filterTarget}"]`)) {
+                            return;
+                        }
+
+                        const button = document.createElement('button');
+                        button.className = 'category-btn';
                         button.setAttribute('data-target', filterTarget);
                         button.textContent = category.category_name || category.name || `Category ${category.id}`;
                         container.appendChild(button);
