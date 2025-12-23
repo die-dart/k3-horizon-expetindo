@@ -25,7 +25,9 @@ body {
 }
 
 .navbar-container {
-    background-color: rgba(21, 98, 188, 0.85);
+    background: linear-gradient(135deg,
+            rgba(21, 98, 188, 0.75)0%,
+            rgba(13, 69, 128, 0.75)100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 50px;
@@ -34,7 +36,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    box-shadow: 0 4px 20px rgba(21, 98, 188, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 139, 0.15);
 }
 
 /* Left Side: Brand Section */
@@ -47,7 +49,7 @@ body {
 }
 
 .navbar-logo {
-    height: 250px;
+    height: 50px;
     width: auto;
     object-fit: contain;
     margin-right: auto;
@@ -448,7 +450,7 @@ body {
     }
 
     .navbar-logo {
-        height: 120px;
+        height: 40px;
     }
 
     .navbar-company-name {
@@ -573,7 +575,7 @@ body {
     }
 
     .navbar-logo {
-        height: 120px;
+        height: 35px;
     }
 
     .navbar-company-name {
