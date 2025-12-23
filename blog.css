@@ -52,10 +52,14 @@ main {
 
 .category-filters {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
-    flex-wrap: wrap;
-    padding: 0 1rem;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: thin;
 }
 
 .category-btn {
