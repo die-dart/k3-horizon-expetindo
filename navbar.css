@@ -47,10 +47,11 @@ body {
 }
 
 .navbar-logo {
-    height: 45px;
+    height: 250px;
     width: auto;
     object-fit: contain;
     margin-right: auto;
+    flex-shrink: 0;
     filter: drop-shadow(1px 0px 0px rgba(255, 0, 0, 0.75)) drop-shadow(-1px 0px 0px rgba(0, 255, 255, 0.75));
 }
 
@@ -447,7 +448,7 @@ body {
     }
 
     .navbar-logo {
-        height: 35px;
+        height: 120px;
     }
 
     .navbar-company-name {
@@ -572,7 +573,7 @@ body {
     }
 
     .navbar-logo {
-        height: 30px;
+        height: 120px;
     }
 
     .navbar-company-name {
