@@ -25,7 +25,7 @@
 }
 
 .training-programs-title {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: poppins;
     font-size: 42px;
     font-weight: 700;
     color: #1A3A52;
@@ -145,7 +145,7 @@
 }
 
 .card-title {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: poppins;
     font-size: 20px;
     font-weight: 700;
     color: #1F2937;
@@ -153,7 +153,7 @@
 }
 
 .card-description {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: poppins;
     font-size: 15px;
     line-height: 1.6;
     color: #6B7280;
@@ -170,7 +170,7 @@
 }
 
 .card-link {
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: poppins;
     font-size: 15px;
     font-weight: 600;
     color: #1A62B7;

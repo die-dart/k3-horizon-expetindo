@@ -13,7 +13,7 @@
 
 body {
     background-color: var(--bg-white);
-    font-family: 'Inter', sans-serif;
+    font-family: poppins;
     color: var(--text-dark);
     margin: 0;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .page-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: poppins;
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -64,7 +64,7 @@ body {
     border: 1px solid #e0e0e0;
     padding: 10px 24px;
     border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: poppins;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-dark);
@@ -164,7 +164,7 @@ body {
 }
 
 .card-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: poppins;
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
