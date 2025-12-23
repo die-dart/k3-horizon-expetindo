@@ -75,11 +75,16 @@
             const urlParams = new URLSearchParams(window.location.search);
             const articleId = urlParams.get('id');
 
-            console.log('Current URL:', window.location.href);
-            console.log('Article ID from URL:', articleId);
+            const container = document.getElementById('article-content');
 
             if (!articleId) {
-                document.getElementById('article-content').innerHTML = '<div style="text-align:center; padding: 10rem 2rem;"><h2>Article not found</h2><p>Missing ID parameter</p><a href="blog.html">Back to Blog</a></div>';
+                container.innerHTML = `
+                    <div style="text-align:center; padding: 10rem 2rem;">
+                        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Artikel tidak ditemukan</h1>
+                        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-secondary);">Parameter ID hilang</p>
+                        <a href="blog.html" style="color: var(--primary-color); text-decoration: underline; font-weight: 600;">Kembali ke Blog</a>
+                    </div>
+                `;
                 return;
             }
 
@@ -87,7 +92,7 @@
                 let { data: article, error } = await supabaseClient
                     .from('articles')
                     .select('*')
-                    .eq('id', articleId)
+                    .eq('id', articleId.toString())
                     .single();
 
                 if (error) throw error;
@@ -97,7 +102,13 @@
                 }
             } catch (err) {
                 console.error('Error loading article:', err.message);
-                document.getElementById('article-content').innerHTML = '<div style="text-align:center; padding: 10rem 2rem;"><h2>Error loading article</h2><p>' + err.message + '</p><a href="blog.html">Back to Blog</a></div>';
+                container.innerHTML = `
+                    <div style="text-align:center; padding: 10rem 2rem;">
+                        <h2 style="margin-bottom: 1rem;">Gagal memuat artikel</h2>
+                        <p style="margin-bottom: 2rem;">${err.message}</p>
+                        <a href="blog.html" style="color: var(--primary-color); text-decoration: underline;">Kembali ke Blog</a>
+                    </div>
+                `;
             }
         }
 
@@ -119,9 +130,9 @@
             const layout = `
                 <article>
                     <header class="article-header">
-                        <span class="article-category">${article.category || 'Uncategorized'}</span>
+                        <span class="article-category">${article.category || 'Tanpa Kategori'}</span>
                         <h1 class="article-title">${article.title}</h1>
-                        <div class="article-meta">Published on ${formattedDate}</div>
+                        <div class="article-meta">Diterbitkan pada ${formattedDate}</div>
                     </header>
                     
                     <div class="article-hero">

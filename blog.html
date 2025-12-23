@@ -182,18 +182,23 @@
             const grid = document.getElementById('blog-grid-container');
 
             try {
+                // Fetch articles ordered by newest first - Senior Requirement
                 let { data: articles, error } = await supabaseClient
                     .from('articles')
-                    .select('*')
+                    .select('id, title, thumbnail, category, published_at, content')
                     .order('published_at', { ascending: false });
 
                 if (error) throw error;
 
                 if (articles) {
-                    grid.innerHTML = ''; // Clear static ones
+                    grid.innerHTML = ''; // Clean start
                     articles.forEach(article => {
                         const date = new Date(article.published_at);
-                        const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
+                        const formattedDate = date.toLocaleDateString('id-ID', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        }).toUpperCase();
 
                         const card = `
                             <article class="post-card" data-category="${article.category?.toLowerCase()}">
@@ -202,8 +207,9 @@
                                 </a>
                                 <h2 class="post-title">${article.title}</h2>
                                 <p class="post-excerpt">${sanitizeExcerpt(article.content)}</p>
-                                <div class="post-meta">
+                                <div class="post-meta" style="display: flex; justify-content: space-between; align-items: center;">
                                     <span class="post-date">${formattedDate}</span>
+                                    <a href="article.html?id=${article.id}" class="read-more-link" style="color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 0.85rem;">Baca Selengkapnya →</a>
                                 </div>
                             </article>
                         `;
@@ -213,6 +219,9 @@
                 }
             } catch (err) {
                 console.error('Error fetching articles:', err.message);
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <p>Gagal memuat artikel: ${err.message}</p>
+                </div>`;
             }
         }
 
