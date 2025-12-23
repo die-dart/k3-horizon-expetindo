@@ -313,6 +313,25 @@ body {
         font-size: 2.2rem;
     }
 
+    .category-filters {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0 1rem 12px;
+        margin: 0 -1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .category-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+
     .lightbox-content {
         max-width: 95%;
     }
