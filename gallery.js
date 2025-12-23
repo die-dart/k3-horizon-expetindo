@@ -47,7 +47,23 @@ async function fetchCategories() {
         if (error) throw error;
 
         // Extract unique categories and filter out nulls
-        const uniqueCategories = [...new Set(data.map(item => item.category).filter(Boolean))];
+        let uniqueCategories = [...new Set(data.map(item => item.category).filter(Boolean))];
+
+        // Custom sort order definition (normalized keys)
+        const sortOrder = ['kemnakerri', 'bnsp', 'nonsertifikasi'];
+
+        const normalize = (s) => s.toLowerCase().replace(/[\s\-_]/g, '');
+
+        // Sort the categories
+        uniqueCategories.sort((a, b) => {
+            const indexA = sortOrder.indexOf(normalize(a));
+            const indexB = sortOrder.indexOf(normalize(b));
+
+            if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+            if (indexA !== -1) return -1;
+            if (indexB !== -1) return 1;
+            return a.localeCompare(b);
+        });
 
         // Build the dynamic categories list
         const dynamicCategories = [
@@ -83,11 +99,15 @@ function formatCategoryName(str) {
         'k3': 'K3'
     };
 
+    // Split by dash or space
     return str
-        .split('-')
+        .split(/[\-\s]/)
         .map(word => {
             const lower = word.toLowerCase();
-            return acronyms[lower] || (word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+            if (acronyms[lower]) return acronyms[lower];
+
+            // Standard Title Case
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         })
         .join(' ');
 }
