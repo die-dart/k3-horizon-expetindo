@@ -61,27 +61,29 @@ main {
 .category-btn {
     background: #ffffff;
     border: 1px solid #e0e0e0;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-size: 0.9rem;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-primary);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
     white-space: nowrap;
 }
 
 .category-btn:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
-    transform: translateY(2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .category-btn.active {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: #ffffff;
+    box-shadow: 0 8px 20px rgba(26, 98, 183, 0.2);
 }
 
 
