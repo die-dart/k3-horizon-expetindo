@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap');
 
 :root {
+    --primary-blue-color: #1A62B7;
     --bg-color: #ffffff;
     --text-primary: #000000;
     --text-secondary: #666666;
@@ -27,6 +28,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* Main Content: Layout */
 /* Main Content: Layout */
 main {
@@ -37,21 +44,19 @@ main {
 }
 
 .blog-hero {
-    background-color: var(--primary-color);
-    width: 100%;
-    padding: 100px 1rem 50px;
-    /* Top padding for fixed navbar */
+    background-color: var(--primary-blue-color);
+    padding: 140px 0 60px;
+    /* Adjusted padding including top navbar space */
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
-.blog-title {
+.page-title {
     font-family: poppins;
     font-size: 3.5rem;
     font-weight: 700;
-    margin: 0;
+    margin-bottom: 1rem;
     color: #ffffff;
-    letter-spacing: -1px;
 }
 
 .category-filters {
