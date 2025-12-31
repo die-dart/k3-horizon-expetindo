@@ -10,7 +10,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 60px;
+    gap: 70px;
 }
 
 /* ===== COLUMN 1: BRAND / INFO ===== */
@@ -184,4 +184,28 @@
         width: 100%;
         justify-content: flex-start;
     }
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-link:hover {
+    color: #ffffff;
 }

@@ -1,5 +1,5 @@
 :root {
-    --article-max-width: 800px;
+    --article-max-width: 1000px;
     --hero-height: 50vh;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .article-title {
-    font-family: var(--font-serif);
+    font-family: poppins;
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -65,7 +65,7 @@
 
 .article-body h2,
 .article-body h3 {
-    font-family: var(--font-serif);
+    font-family: poppins;
     margin: 3rem 0 1.5rem;
     color: var(--text-primary);
 }

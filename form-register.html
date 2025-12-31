@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pelatihan - PT Horizon Solusi Expertindo</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="form-register.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <!-- ===== HEADER: NAVIGATION BAR ===== -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="logo-type.png" alt="PT Horizon Solusi Expertindo Logo" class="navbar-logo">
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="about.html" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">Layanan</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="gallery.html" class="nav-link">Galeri</a></li>
+                    </ul>
+                    <a href="index.html#contact" class="btn-contact">Hubungi Kami</a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="register-hero">
+        <div class="container">
+            <h1 class="page-title">Pendaftaran Pelatihan</h1>
+            <p class="page-subtitle">Daftar sekarang untuk mengikuti program pelatihan dan sertifikasi kami</p>
+        </div>
+    </section>
+
+    <!-- ===== FORM SECTION ===== -->
+    <main class="register-main">
+        <div class="form-container">
+            <form class="registration-form" id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Nama Lengkap *</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input"
+                            placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Alamat Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="contoh@email.com"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Nomor Telepon/WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="08xxx-xxxx-xxxx"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company" class="form-label">Instansi/Perusahaan</label>
+                        <input type="text" id="company" name="company" class="form-input"
+                            placeholder="Nama instansi atau perusahaan">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="program" class="form-label">Pilih Program Pelatihan *</label>
+                    <select id="program" name="program" class="form-select" required>
+                        <option value="">-- Pilih Program --</option>
+                        <option value="bnsp">BNSP - Sertifikasi Profesional</option>
+                        <option value="kemnaker">Kemnaker RI - Sertifikasi Resmi</option>
+                        <option value="non-cert">Non Sertifikasi - Workshop Profesional</option>
+                        <option value="advanced-bnsp">Advanced BNSP - Pelatihan Lanjutan</option>
+                        <option value="k3-cert">K3 Certification - Keselamatan Kerja</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Pesan/Catatan</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="5"
+                        placeholder="Tuliskan pertanyaan atau informasi tambahan (opsional)"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Kirim Pendaftaran</button>
+                    <p class="form-note">Pendaftaran lebih lanjut akan dihubungi oleh tim kami</p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column footer-brand">
+                <h3 class="footer-brand-title">PT Horizon Solusi Expertindo</h3>
+                <p class="footer-brand-text">Pusat pelatihan dan sertifikasi kompetensi terpercaya untuk kemajuan karier
+                    dan bisnis Anda.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Layanan</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html" class="footer-link">Pelatihan BNSP</a></li>
+                    <li><a href="services.html" class="footer-link">Sertifikasi Kemnaker</a></li>
+                    <li><a href="services.html" class="footer-link">Konsultasi K3</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Kontak</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@horizonexpertindo.com" class="footer-link">Email Kami</a></li>
+                    <li><a href="index.html#contact" class="footer-link">Lokasi Kantor</a></li>
+                    <li><a href="https://wa.me/628123456789" class="footer-link">WhatsApp</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Perusahaan</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html" class="footer-link">Tentang Kami</a></li>
+                    <li><a href="index.html#blog" class="footer-link">Blog & Artikel</a></li>
+                    <li><a href="gallery.html" class="footer-link">Galeri Foto</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="navbar.js"></script>
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://fjzzbrqxkprsxjqlpqly.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_c4qv84Kkzdb6g7KJCnyEfg_eeOEFmfx';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Form submission handler with Supabase
+        document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Map form fields to database columns
+            const registrationData = {
+                full_name: formData.get('fullName'),
+                email: formData.get('email'),
+                number_phone: formData.get('phone'),
+                company: formData.get('company') || null,
+                training_program: formData.get('program')
+            };
+
+            try {
+                // Insert data into Supabase
+                const { data, error } = await supabaseClient
+                    .from('form_registers')
+                    .insert([registrationData])
+                    .select();
+
+                if (error) {
+                    console.error('Error submitting form:', error);
+                    alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
+                } else {
+                    console.log('Form submitted successfully:', data);
+                    alert('Terima kasih! Pendaftaran Anda telah diterima. Tim kami akan segera menghubungi Anda.');
+                    this.reset();
+                }
+            } catch (err) {
+                console.error('Unexpected error:', err);
+                alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
+            }
+        });
+    </script>
+</body>
+
+</html>

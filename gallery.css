@@ -13,7 +13,7 @@
 
 body {
     background-color: var(--bg-white);
-    font-family: 'Inter', sans-serif;
+    font-family: poppins;
     color: var(--text-dark);
     margin: 0;
 }
@@ -26,21 +26,24 @@ body {
 
 /* ===== HERO SECTION ===== */
 .gallery-hero {
-    padding: 160px 0 80px;
+    background-color: var(--primary-blue);
+    padding: 140px 0 60px;
+    /* Adjusted padding including top navbar space */
     text-align: center;
+    margin-bottom: 0;
 }
 
 .page-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: poppins;
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-dark);
+    color: #ffffff;
 }
 
 .page-subtitle {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.9);
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
@@ -48,14 +51,19 @@ body {
 
 /* ===== CATEGORY FILTERS ===== */
 .filter-section {
-    padding: 0 0 40px;
+    padding: 2rem 0 40px;
 }
 
 .category-filters {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    scrollbar-width: thin;
     margin-bottom: 2rem;
 }
 
@@ -64,7 +72,7 @@ body {
     border: 1px solid #e0e0e0;
     padding: 10px 24px;
     border-radius: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: poppins;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-dark);
@@ -164,7 +172,7 @@ body {
 }
 
 .card-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: poppins;
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;

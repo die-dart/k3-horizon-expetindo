@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -21,8 +26,7 @@
                 <!-- Left Side: Logo and Company Name -->
                 <div class="navbar-brand">
                     <a href="index.html" class="nav-logo">
-                        <img src="logo-he-white2.png" alt="PT Horizon Solusi Expertindo Logo" class="navbar-logo">
-                        <span class="navbar-company-name">PT Horizon Solusi Expertindo</span>
+                        <img src="logo-type.png" alt="PT Horizon Solusi Expertindo Logo" class="navbar-logo">
                     </a>
                 </div>
 
@@ -47,14 +51,17 @@
         </nav>
     </header>
 
+    <section class="blog-hero">
+        <div class="container">
+            <h1 class="page-title">Jelajahi Blog Kami</h1>
+        </div>
+    </section>
+
     <main>
-        <section class="blog-header">
-            <h1 class="blog-title">Jelajahi Blog kami</h1>
-            <div class="category-filters" id="category-filters-container">
-                <button class="category-btn active" data-target="all">Semua</button>
-                <!-- Categories will be loaded here -->
-            </div>
-        </section>
+        <div class="category-filters" id="category-filters-container">
+            <button class="category-btn active" data-target="all">Semua</button>
+            <!-- Categories will be loaded here -->
+        </div>
 
         <div class="blog-grid" id="blog-grid-container">
             <!-- Articles will be loaded here -->
@@ -82,56 +89,36 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-container">
-            <!-- Column 1: Brand / Info -->
             <div class="footer-column footer-brand">
-                <h3 class="footer-brand-title">PT. Horizon Expetindo</h3>
-                <p class="footer-brand-text">Terima kasih telah menghubungi kami. Kami akan segera memproses pesan Anda.
-                </p>
+                <h3 class="footer-brand-title">PT Horizon Solusi Expertindo</h3>
+                <p class="footer-brand-text">Pusat pelatihan dan sertifikasi kompetensi terpercaya untuk kemajuan karier
+                    dan bisnis Anda.</p>
             </div>
 
-            <!-- Column 2: Product -->
             <div class="footer-column">
-                <h4 class="footer-heading">Produk</h4>
+                <h4 class="footer-heading">Layanan</h4>
                 <ul class="footer-links">
-                    <li><a href="#features" class="footer-link">Fitur</a></li>
-                    <li><a href="#pricing" class="footer-link">Biaya</a></li>
+                    <li><a href="services.html" class="footer-link">Pelatihan BNSP</a></li>
+                    <li><a href="services.html" class="footer-link">Sertifikasi Kemnaker</a></li>
+                    <li><a href="services.html" class="footer-link">Konsultasi K3</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Work -->
             <div class="footer-column">
                 <h4 class="footer-heading">Kontak</h4>
                 <ul class="footer-links">
-                    <li><a href="#portfolio" class="footer-link">Email</a></li>
-                    <li><a href="#latest" class="footer-link">Whatsapp</a></li>
+                    <li><a href="mailto:info@horizonexpertindo.com" class="footer-link">Email Kami</a></li>
+                    <li><a href="index.html#contact" class="footer-link">Lokasi Kantor</a></li>
+                    <li><a href="https://wa.me/628123456789" class="footer-link">WhatsApp</a></li>
                 </ul>
             </div>
 
-            <!-- Column 4: Stuff & Language -->
             <div class="footer-column">
-                <!-- Language Selector -->
-                <div class="language-selector" role="button" tabindex="0" aria-label="Language selector">
-                    <svg class="language-flag" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
-                        <path
-                            d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
-                            stroke="currentColor" stroke-width="2" />
-                    </svg>
-                    <span class="language-text">English</span>
-                    <svg class="language-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </div>
-
-                <h4 class="footer-heading">Lainnya</h4>
+                <h4 class="footer-heading">Perusahaan</h4>
                 <ul class="footer-links">
-                    <li><a href="#privacy" class="footer-link">Privacy</a></li>
-                    <li><a href="#support" class="footer-link">Support</a></li>
-                    <li><a href="#helpdesk" class="footer-link">Help Desk</a></li>
-                    <li><a href="#faq-footer" class="footer-link">FAQ</a></li>
+                    <li><a href="about.html" class="footer-link">Tentang Kami</a></li>
+                    <li><a href="index.html#blog" class="footer-link">Blog & Artikel</a></li>
+                    <li><a href="gallery.html" class="footer-link">Galeri Foto</a></li>
                 </ul>
             </div>
         </div>
