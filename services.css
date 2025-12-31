@@ -13,6 +13,9 @@
     grid-template-columns: 280px 1fr;
     gap: 40px;
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 /* ===== SIDEBAR NAVIGATION ===== */
@@ -274,39 +277,112 @@
 
 /* ===== RESPONSIVE STYLES ===== */
 @media (max-width: 1024px) {
+    .services-main {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .section-container {
+        padding: 0 16px;
+    }
+
     .services-layout {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .services-sidebar {
         position: relative;
         top: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .category-list {
+        display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         overflow-x: auto;
         padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+        width: 100%;
+    }
+
+    .category-list::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     .category-item {
+        flex: 0 0 auto;
         white-space: nowrap;
+        padding: 10px 14px;
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 640px) {
-    .services-main {
-        padding-top: 120px;
-    }
-
+@media (max-width: 768px) {
     .services-header {
         flex-direction: column;
         align-items: stretch;
+        gap: 20px;
+    }
+
+    .page-title-group h1 {
+        font-size: 1.75rem;
+    }
+
+    .search-box {
+        max-width: 100%;
+        width: 70%;
+        position: relative;
+        left: 15%;
     }
 
     .program-grid {
         grid-template-columns: 1fr;
+    }
+
+    .empty-state-container {
+        padding: 40px 16px;
+        margin: 20px 0;
+    }
+
+    .empty-state-title {
+        font-size: 1.5rem;
+    }
+
+    .empty-state-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-main {
+        padding-top: 90px;
+    }
+
+    .page-title-group h1 {
+        font-size: 1.5rem;
+    }
+
+    .empty-state-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .gear-icon {
+        font-size: 60px;
+    }
+
+    .empty-state-title {
+        font-size: 1.25rem;
     }
 }
 
@@ -337,6 +413,8 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     margin: 40px 0;
     animation: fadeIn 0.6s ease-out;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .empty-state-container.show {
