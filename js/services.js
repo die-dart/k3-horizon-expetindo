@@ -90,4 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeCategory = document.querySelector('.category-item.active').dataset.category;
         filterServices(activeCategory, e.target.value);
     });
+
+    // Initial Filter Trigger
+    const initialCategory = document.querySelector('.category-item.active').dataset.category;
+    filterServices(initialCategory);
 });
