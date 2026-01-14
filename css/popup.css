@@ -32,17 +32,23 @@
     display: inline-block;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Safari fix: ensure positioning context */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 /* Popup Image */
 .popup-image-wrapper img {
     display: block;
-    width: 100%;
+    width: auto;
     height: auto;
     max-height: 80vh;
+    max-width: 100%;
     /* Agar tidak terlalu tinggi di layar */
     border-radius: 8px;
-    object-fit: contain;
+    /* Safari fix: prevent image from affecting button position */
+    position: relative;
+    z-index: 1;
 }
 
 /* Close Button */
@@ -59,14 +65,24 @@
     border-radius: 50%;
     font-size: 18px;
     font-weight: bold;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: center;
     justify-content: center;
+    -webkit-align-items: center;
     align-items: center;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
     z-index: 10000;
     line-height: 1;
+    /* Safari fix: force hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Safari fix: prevent button from being affected by flex container */
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
 }
 
 .popup-close:hover {
