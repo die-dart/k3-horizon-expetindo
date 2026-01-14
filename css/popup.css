@@ -1,0 +1,77 @@
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Background overlay gelap semi transparan */
+    z-index: 9999;
+    display: none;
+    /* Hidden default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Popup Content */
+.popup-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Popup Image */
+.popup-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    /* Agar tidak terlalu tinggi di layar */
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 25px;
+    height: 25px;
+    background-color: #333333;
+    /* Dark grey instead of red */
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s;
+    z-index: 10000;
+}
+
+.popup-close:hover {
+    background-color: #000000;
+    /* Darker on hover */
+}
+
+/* Animation classes */
+.popup-visible {
+    opacity: 1;
+}
+
+.popup-visible .popup-content {
+    transform: scale(1);
+}
