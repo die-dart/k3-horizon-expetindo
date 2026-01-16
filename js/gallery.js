@@ -1,18 +1,17 @@
 /**
  * PT Horizon Solusi Expertindo
- * Gallery Page Data & Logic - Dynamic Supabase Version
+ * Gallery Page Data & Logic - Custom Backend API Version
  */
 
-// 1. Supabase Configuration
-const SUPABASE_URL = 'https://fjzzbrqxkprsxjqlpqly.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_c4qv84Kkzdb6g7KJCnyEfg_eeOEFmfx';
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// 1. Configuration
+const API_BASE_URL = 'http://localhost:9999'; // Update this to your actual API URL
 
 // 2. State Management
 let galleryData = [];
 let filteredData = [];
 let currentImageIndex = 0;
 let activeFilter = 'semua';
+let isLoading = false;
 
 // 3. DOM Elements
 const galleryGrid = document.getElementById('gallery-grid');
@@ -33,18 +32,26 @@ async function initGallery() {
 // 5. Functions
 
 /**
- * Fetch Categories from Supabase
+ * Fetch Categories from Backend API
  */
 async function fetchCategories() {
     if (!filterContainer) return;
 
     try {
-        // Fetch categories from the galleries table
-        let { data, error } = await supabaseClient
-            .from('galleries')
-            .select('category');
+        // Fetch all galleries to extract unique categories
+        const response = await fetch(`${API_BASE_URL}/galleries`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-        if (error) throw error;
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        const data = result.data || result; // Handle both {data: [...]} and [...] responses
 
         // Extract unique categories and filter out nulls
         let uniqueCategories = [...new Set(data.map(item => item.category).filter(Boolean))];
@@ -77,7 +84,7 @@ async function fetchCategories() {
         renderFilters(dynamicCategories);
     } catch (err) {
         console.error('Error fetching categories:', err.message);
-        // Fallback to basic categories if table is empty or error occurs
+        // Fallback to basic categories if error occurs
         const fallbackCategories = [
             { id: 'semua', name: 'Semua' }
         ];
@@ -113,29 +120,61 @@ function formatCategoryName(str) {
 }
 
 /**
- * Fetch Gallery Items from Supabase
+ * Fetch Gallery Items from Backend API
  */
 async function fetchGalleryItems() {
     try {
-        let { data, error } = await supabaseClient
-            .from('galleries')
-            .select('*')
-            .order('published_at', { ascending: false });
+        // Show loading state
+        setLoadingState(true);
 
-        if (error) throw error;
+        const response = await fetch(`${API_BASE_URL}/galleries`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        const data = result.data || result; // Handle both {data: [...]} and [...] responses
 
         galleryData = data || [];
         filteredData = [...galleryData];
+
+        setLoadingState(false);
         renderGallery();
     } catch (err) {
         console.error('Error fetching gallery items:', err.message);
+        setLoadingState(false);
+
         if (galleryGrid) {
             galleryGrid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
-                    <p>Gagal memuat galeri: ${err.message}</p>
+                <div class="error-state" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                    <p style="color: #e74c3c; font-size: 1.2rem; margin-bottom: 1rem;">⚠️ Gagal memuat galeri</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">${err.message}</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Pastikan backend server berjalan di ${API_BASE_URL}</p>
                 </div>
             `;
         }
+    }
+}
+
+/**
+ * Set loading state
+ */
+function setLoadingState(loading) {
+    isLoading = loading;
+
+    if (galleryGrid && loading) {
+        galleryGrid.innerHTML = `
+            <div class="loading-state" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                <div class="spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-left-color: var(--primary-blue); border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1rem;">Memuat galeri...</p>
+            </div>
+        `;
     }
 }
 
@@ -181,7 +220,7 @@ function setActiveFilter(filter) {
 }
 
 function renderGallery() {
-    if (!galleryGrid) return;
+    if (!galleryGrid || isLoading) return;
 
     if (filteredData.length === 0) {
         galleryGrid.innerHTML = `
@@ -195,7 +234,7 @@ function renderGallery() {
     galleryGrid.innerHTML = filteredData.map((item, index) => `
         <div class="gallery-card" onclick="openLightbox(${index})">
             <div class="image-wrapper">
-                <img src="${convertDriveLink(item.image)}" alt="${item.title}" class="gallery-thumb">
+                <img src="${convertDriveLink(item.thumbnail || item.image || '')}" alt="${item.title}" class="gallery-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/800x450?text=No+Image'">
                 <div class="card-overlay">
                     <span class="overlay-title">${item.title}</span>
                 </div>
@@ -226,7 +265,7 @@ function updateLightboxImage() {
 
     lightboxImg.style.opacity = '0';
     setTimeout(() => {
-        lightboxImg.src = convertDriveLink(item.image);
+        lightboxImg.src = convertDriveLink(item.thumbnail || item.image || '');
         lightboxImg.alt = item.title;
         lightboxImg.style.opacity = '1';
     }, 200);
@@ -278,15 +317,23 @@ function setupEventListeners() {
     });
 }
 
-// Helper: Convert Google Drive Link
+// Helper: Convert Google Drive Link to displayable image URL
 function convertDriveLink(url) {
     if (!url) return 'https://via.placeholder.com/800x450?text=No+Image';
+
+    // If it's already a valid image URL, return it
+    if (url.match(/\.(jpg|jpeg|png|gif|webp)$/i) && !url.includes('drive.google.com')) {
+        return url;
+    }
+
+    // Convert Google Drive links to direct image links
     if (url.includes('drive.google.com')) {
         const idMatch = url.match(/\/d\/(.+?)\//) || url.match(/id=(.+?)(&|$)/);
         if (idMatch && idMatch[1]) {
             return `https://lh3.googleusercontent.com/u/0/d/${idMatch[1]}`;
         }
     }
+
     return url;
 }
 
