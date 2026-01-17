@@ -3,12 +3,13 @@ const API_BASE_URL = 'http://localhost:9999';
 async function loadArticle() {
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = urlParams.get('id');
-    const container = document.getElementById('article-content');
 
     if (!articleId) {
         renderError('Artikel tidak ditemukan', 'Parameter ID hilang');
         return;
     }
+
+    setLoadingState(true);
 
     try {
         const response = await fetch(`${API_BASE_URL}/articles/${articleId}`);
@@ -30,6 +31,7 @@ async function loadArticle() {
         console.error('Error loading article:', err);
         renderError('Gagal memuat artikel', err.message);
     }
+    // No finally block to setLoadingState(false) because renderArticle/renderError overwrites the innerHTML anyway
 }
 
 function renderArticle(article) {
@@ -88,6 +90,29 @@ function convertDriveLink(url) {
         }
     }
     return url;
+}
+
+/**
+ * Set loading state
+ */
+function setLoadingState(loading) {
+    const container = document.getElementById('article-content');
+    if (!container) return;
+
+    if (loading) {
+        container.innerHTML = `
+            <div class="loading-state" style="text-align: center; padding: 10rem 2rem;">
+                <div class="spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-left-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <p style="color: #6b7280; margin-top: 1rem; font-size: 1.2rem;">Memuat artikel...</p>
+            </div>
+            <style>
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            </style>
+        `;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', loadArticle);
