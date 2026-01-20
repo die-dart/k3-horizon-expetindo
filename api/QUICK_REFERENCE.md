@@ -2,13 +2,13 @@
 
 ## 🌐 Your API URLs
 
-**Production API**: `https://horizonexpert.id/dev/api`
+**Production API**: `https://horizonexpert.id/api`
 
 ### Test Pages (after upload):
-- **API Info**: https://horizonexpert.id/api
-- **Environment Check**: https://horizonexpert.id/apiverify_env.php
-- **Database Test**: https://horizonexpert.id/apitest_db.php
-- **API Test Tool**: https://horizonexpert.id/apiapi_test_tool.html
+- **API Info**: https://horizonexpert.id/api/
+- **Environment Check**: https://horizonexpert.id/api/verify_env.php
+- **Database Test**: https://horizonexpert.id/api/test_db.php
+- **API Test Tool**: https://horizonexpert.id/api/api_test_tool.html
 
 ---
 
@@ -65,7 +65,7 @@ DB_PASS=HEDBhoriZ0n
 ```javascript
 // API Configuration
 const API = {
-    baseURL: 'https://horizonexpert.id/dev/api',
+    baseURL: 'https://horizonexpert.id/api',
     token: 'your-jwt-token' // Set ini dari hasil login
 };
 
