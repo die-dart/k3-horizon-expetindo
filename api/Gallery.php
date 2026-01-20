@@ -17,9 +17,7 @@ class Gallery {
     public function findAll(): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, title, description, image_url, thumbnail, 
-                       category_id, created_at, updated_at 
-                FROM galleries 
+                SELECT * FROM galleries 
                 ORDER BY created_at DESC
             ");
             $stmt->execute();
@@ -38,9 +36,7 @@ class Gallery {
     public function findById(string $id): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, title, description, image_url, thumbnail, 
-                       category_id, created_at, updated_at 
-                FROM galleries 
+                SELECT * FROM galleries 
                 WHERE id = :id
             ");
             $stmt->execute(['id' => $id]);
