@@ -17,9 +17,7 @@ class Article {
     public function findAll(): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, title, slug, content, thumbnail, category_id, 
-                       author, published_at, created_at, updated_at 
-                FROM articles 
+                SELECT * FROM articles 
                 ORDER BY created_at DESC
             ");
             $stmt->execute();
@@ -38,9 +36,7 @@ class Article {
     public function findById(string $id): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, title, slug, content, thumbnail, category_id, 
-                       author, published_at, created_at, updated_at 
-                FROM articles 
+                SELECT * FROM articles 
                 WHERE id = :id
             ");
             $stmt->execute(['id' => $id]);
