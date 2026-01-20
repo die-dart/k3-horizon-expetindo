@@ -4,7 +4,7 @@
  */
 
 // 1. Configuration
-const API_BASE_URL = 'http://localhost:9999'; // Update this to your actual API URL
+const API_BASE_URL = 'https://horizonexpert.id/api'; // PHP API
 
 // 2. State Management
 let galleryData = [];
