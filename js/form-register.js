@@ -17,7 +17,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
 
     try {
         // Send data to Local API
-        const response = await fetch('https://horizonexpert.id/dev/api/formRegisters', {
+        const response = await fetch('https://horizonexpert.id/apiformRegisters', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
