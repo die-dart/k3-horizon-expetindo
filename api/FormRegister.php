@@ -17,9 +17,7 @@ class FormRegister {
     public function findAll(): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, name, email, phone, message, status, 
-                       created_at, updated_at 
-                FROM form_registers 
+                SELECT * FROM form_registers 
                 ORDER BY created_at DESC
             ");
             $stmt->execute();
@@ -38,9 +36,7 @@ class FormRegister {
     public function findById(string $id): void {
         try {
             $stmt = $this->db->prepare("
-                SELECT id, name, email, phone, message, status, 
-                       created_at, updated_at 
-                FROM form_registers 
+                SELECT * FROM form_registers 
                 WHERE id = :id
             ");
             $stmt->execute(['id' => $id]);
@@ -71,13 +67,13 @@ class FormRegister {
             }
             
             // Validate required fields
-            $missing = validateRequired($data, ['name', 'email']);
+            $missing = validateRequired($data, ['full_name', 'email']);
             if ($missing) {
                 errorResponse('Missing required fields', 400, ['missing' => $missing]);
                 return;
             }
             
-            $name = sanitizeString($data['name']);
+            $fullName = sanitizeString($data['full_name']);
             $email = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
             
             if (!$email) {
@@ -85,29 +81,31 @@ class FormRegister {
                 return;
             }
             
-            $phone = isset($data['phone']) ? sanitizeString($data['phone']) : null;
-            $message = isset($data['message']) ? sanitizeString($data['message']) : null;
-            $status = isset($data['status']) ? sanitizeString($data['status']) : 'pending';
+            $phoneNumber = isset($data['phone_number']) ? $data['phone_number'] : null;
+            $company = isset($data['company']) ? sanitizeString($data['company']) : null;
+            $trainingProgram = isset($data['training_program']) ? sanitizeString($data['training_program']) : null;
+            $note = isset($data['note']) ? sanitizeString($data['note']) : null;
             
             $stmt = $this->db->prepare("
                 INSERT INTO form_registers 
-                (name, email, phone, message, status, created_at, updated_at) 
-                VALUES (:name, :email, :phone, :message, :status, NOW(), NOW())
+                (full_name, email, phone_number, company, training_program, note, created_at, updated_at) 
+                VALUES (:full_name, :email, :phone_number, :company, :training_program, :note, NOW(), NOW())
             ");
             
             $stmt->execute([
-                'name' => $name,
+                'full_name' => $fullName,
                 'email' => $email,
-                'phone' => $phone,
-                'message' => $message,
-                'status' => $status
+                'phone_number' => $phoneNumber,
+                'company' => $company,
+                'training_program' => $trainingProgram,
+                'note' => $note
             ]);
             
             $id = $this->db->lastInsertId();
             
             successResponse([
                 'id' => $id,
-                'name' => $name,
+                'full_name' => $fullName,
                 'email' => $email
             ], 'Form registration created successfully', 201);
             
