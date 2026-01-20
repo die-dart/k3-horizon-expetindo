@@ -48,9 +48,15 @@ $id = $pathParts[1] ?? null;
 
 // Authentication - only required for write operations (POST, PUT, DELETE)
 // GET requests are public for viewing content
+// Exception: POST /formRegisters is public (user registration form)
 $auth = null;
 if ($method !== 'GET') {
-    $auth = authenticate();
+    // Allow public access to form registration
+    $isPublicFormSubmit = ($method === 'POST' && $resource === 'formRegisters');
+    
+    if (!$isPublicFormSubmit) {
+        $auth = authenticate();
+    }
 }
 
 // Router - Match resource and method
