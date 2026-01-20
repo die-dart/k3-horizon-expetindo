@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://horizonexpert.id/api';
+const API_BASE_URL = 'https://horizonexpert.id/dev/api';
 
 async function loadArticle() {
     const urlParams = new URLSearchParams(window.location.search);
