@@ -32,13 +32,12 @@ $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 // Remove query string from URI
 $path = parse_url($requestUri, PHP_URL_PATH);
 
-// Remove base path if API is not in root
-// Adjust this if your api folder is accessed via a subdirectory
-$basePath = '/api';
-if (strpos($path, $basePath) === 0) {
-    $path = substr($path, strlen($basePath));
+// Smart base path detection
+// This handles /api, /dev/api, or any subdirectory structure
+$scriptPath = dirname($_SERVER['SCRIPT_NAME']); // e.g., "/dev/api" or "/api"
+if ($scriptPath !== '/' && strpos($path, $scriptPath) === 0) {
+    $path = substr($path, strlen($scriptPath));
 }
-
 // Clean up path
 $path = trim($path, '/');
 
