@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://horizonexpert.id/dev/api';
+const API_BASE_URL = 'https://horizonexpert.id/api';
 
 // Fetch articles and derive categories from them
 async function fetchArticlesAndCategories() {

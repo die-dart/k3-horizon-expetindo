@@ -3,7 +3,7 @@
 ## Domain & URL Structure
 
 **Domain**: horizonexpert.id  
-**API Base URL**: `https://horizonexpert.id/dev/api`
+**API Base URL**: `https://horizonexpert.id/api`
 
 ---
 
@@ -64,7 +64,7 @@ chmod 644 api/.htaccess
 
 ### 4. Verify Environment Variables
 
-**URL Test**: `https://horizonexpert.id/dev/api/verify_env.php`
+**URL Test**: `https://horizonexpert.id/api/verify_env.php`
 
 Expected output:
 ```
@@ -74,7 +74,7 @@ Expected output:
 
 ### 5. Test Database Connection
 
-**URL Test**: `https://horizonexpert.id/dev/api/test_db.php`
+**URL Test**: `https://horizonexpert.id/api/test_db.php`
 
 Expected output:
 ```
@@ -85,7 +85,7 @@ Expected output:
 
 ### 6. Test API Endpoints
 
-**URL Test**: `https://horizonexpert.id/dev/api/`
+**URL Test**: `https://horizonexpert.id/api/`
 
 Expected output (JSON):
 ```json
@@ -113,51 +113,51 @@ rm api/verify_env.php
 
 ## 🌐 API Endpoints untuk Frontend
 
-Base URL: `https://horizonexpert.id/dev/api`
+Base URL: `https://horizonexpert.id/api`
 
 ### Article Categories
 ```
-GET    https://horizonexpert.id/dev/api/articleCategorys
-GET    https://horizonexpert.id/dev/api/articleCategorys/{id}
-POST   https://horizonexpert.id/dev/api/articleCategorys
-PUT    https://horizonexpert.id/dev/api/articleCategorys/{id}
-DELETE https://horizonexpert.id/dev/api/articleCategorys/{id}
+GET    https://horizonexpert.id/api/articleCategorys
+GET    https://horizonexpert.id/api/articleCategorys/{id}
+POST   https://horizonexpert.id/api/articleCategorys
+PUT    https://horizonexpert.id/api/articleCategorys/{id}
+DELETE https://horizonexpert.id/api/articleCategorys/{id}
 ```
 
 ### Articles
 ```
-GET    https://horizonexpert.id/dev/api/articles
-GET    https://horizonexpert.id/dev/api/articles/{id}
-POST   https://horizonexpert.id/dev/api/articles
-PUT    https://horizonexpert.id/dev/api/articles/{id}
-DELETE https://horizonexpert.id/dev/api/articles/{id}
+GET    https://horizonexpert.id/api/articles
+GET    https://horizonexpert.id/api/articles/{id}
+POST   https://horizonexpert.id/api/articles
+PUT    https://horizonexpert.id/api/articles/{id}
+DELETE https://horizonexpert.id/api/articles/{id}
 ```
 
 ### Form Registers
 ```
-GET    https://horizonexpert.id/dev/api/formRegisters
-GET    https://horizonexpert.id/dev/api/formRegisters/{id}
-POST   https://horizonexpert.id/dev/api/formRegisters
-PUT    https://horizonexpert.id/dev/api/formRegisters/{id}
-DELETE https://horizonexpert.id/dev/api/formRegisters/{id}
+GET    https://horizonexpert.id/api/formRegisters
+GET    https://horizonexpert.id/api/formRegisters/{id}
+POST   https://horizonexpert.id/api/formRegisters
+PUT    https://horizonexpert.id/api/formRegisters/{id}
+DELETE https://horizonexpert.id/api/formRegisters/{id}
 ```
 
 ### Galleries
 ```
-GET    https://horizonexpert.id/dev/api/galleries
-GET    https://horizonexpert.id/dev/api/galleries/{id}
-POST   https://horizonexpert.id/dev/api/galleries
-PUT    https://horizonexpert.id/dev/api/galleries/{id}
-DELETE https://horizonexpert.id/dev/api/galleries/{id}
+GET    https://horizonexpert.id/api/galleries
+GET    https://horizonexpert.id/api/galleries/{id}
+POST   https://horizonexpert.id/api/galleries
+PUT    https://horizonexpert.id/api/galleries/{id}
+DELETE https://horizonexpert.id/api/galleries/{id}
 ```
 
 ### Image Categories
 ```
-GET    https://horizonexpert.id/dev/api/imageCategorys
-GET    https://horizonexpert.id/dev/api/imageCategorys/{id}
-POST   https://horizonexpert.id/dev/api/imageCategorys
-PUT    https://horizonexpert.id/dev/api/imageCategorys/{id}
-DELETE https://horizonexpert.id/dev/api/imageCategorys/{id}
+GET    https://horizonexpert.id/api/imageCategorys
+GET    https://horizonexpert.id/api/imageCategorys/{id}
+POST   https://horizonexpert.id/api/imageCategorys
+PUT    https://horizonexpert.id/api/imageCategorys/{id}
+DELETE https://horizonexpert.id/api/imageCategorys/{id}
 ```
 
 ---
@@ -168,7 +168,7 @@ DELETE https://horizonexpert.id/dev/api/imageCategorys/{id}
 
 ```javascript
 // API Configuration
-const API_BASE_URL = 'https://horizonexpert.id/dev/api';
+const API_BASE_URL = 'https://horizonexpert.id/api';
 const JWT_TOKEN = 'your-jwt-token-here'; // Dari login
 
 // Fetch Articles
@@ -287,14 +287,14 @@ ACCESS_SECRET=c5623e7a-ca88-4526-afbd-909c0cbe7b46
 
 ```bash
 # Test root endpoint
-curl https://horizonexpert.id/dev/api/
+curl https://horizonexpert.id/api/
 
 # Test with Bearer token
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-     https://horizonexpert.id/dev/api/articles
+     https://horizonexpert.id/api/articles
 
 # Test POST
-curl -X POST https://horizonexpert.id/dev/api/articles \
+curl -X POST https://horizonexpert.id/api/articles \
      -H "Authorization: Bearer YOUR_TOKEN" \
      -H "Content-Type: application/json" \
      -d '{"title":"Test Article","content":"Test content"}'
@@ -352,6 +352,6 @@ curl -X POST https://horizonexpert.id/dev/api/articles \
 ## 🎉 Ready for Production!
 
 Your API will be accessible at:
-**`https://horizonexpert.id/dev/api`**
+**`https://horizonexpert.id/api`**
 
 Frontend dapat langsung memanggil API ini dengan `fetch()` atau AJAX!

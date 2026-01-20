@@ -4,7 +4,7 @@
  */
 
 // 1. Configuration
-const API_BASE_URL = 'https://horizonexpert.id/dev/api'; // PHP API
+const API_BASE_URL = 'https://horizonexpert.id/api'; // PHP API
 
 // 2. State Management
 let galleryData = [];
