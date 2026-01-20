@@ -1,0 +1,16 @@
+# Ignore environment configuration file (contains sensitive credentials)
+.env
+
+# Ignore log files
+error_log
+*.log
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

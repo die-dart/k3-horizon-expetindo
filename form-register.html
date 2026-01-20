@@ -15,8 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <!-- Supabase CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase CDN - REMOVED -->
 </head>
 
 <body>
@@ -156,49 +155,7 @@
 
     <!-- ===== SCRIPTS ===== -->
     <script src="js/navbar.js"></script>
-    <script>
-        // Supabase configuration
-        const SUPABASE_URL = 'https://fjzzbrqxkprsxjqlpqly.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_c4qv84Kkzdb6g7KJCnyEfg_eeOEFmfx';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        // Form submission handler with Supabase
-        document.getElementById('registrationForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-
-            // Map form fields to database columns
-            const registrationData = {
-                full_name: formData.get('fullName'),
-                email: formData.get('email'),
-                number_phone: formData.get('phone'),
-                company: formData.get('company') || null,
-                training_program: formData.get('program')
-            };
-
-            try {
-                // Insert data into Supabase
-                const { data, error } = await supabaseClient
-                    .from('form_registers')
-                    .insert([registrationData])
-                    .select();
-
-                if (error) {
-                    console.error('Error submitting form:', error);
-                    alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
-                } else {
-                    console.log('Form submitted successfully:', data);
-                    alert('Terima kasih! Pendaftaran Anda telah diterima. Tim kami akan segera menghubungi Anda.');
-                    this.reset();
-                }
-            } catch (err) {
-                console.error('Unexpected error:', err);
-                alert('Maaf, terjadi kesalahan. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
-            }
-        });
-    </script>
+    <script src="js/form-register.js?v=2"></script>
 </body>
 
 </html>
