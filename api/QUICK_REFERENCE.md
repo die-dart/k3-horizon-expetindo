@@ -5,10 +5,10 @@
 **Production API**: `https://horizonexpert.id/dev/api`
 
 ### Test Pages (after upload):
-- **API Info**: https://horizonexpert.id/dev/api/
-- **Environment Check**: https://horizonexpert.id/dev/api/verify_env.php
-- **Database Test**: https://horizonexpert.id/dev/api/test_db.php
-- **API Test Tool**: https://horizonexpert.id/dev/api/api_test_tool.html
+- **API Info**: https://horizonexpert.id/api
+- **Environment Check**: https://horizonexpert.id/apiverify_env.php
+- **Database Test**: https://horizonexpert.id/apitest_db.php
+- **API Test Tool**: https://horizonexpert.id/apiapi_test_tool.html
 
 ---
 
