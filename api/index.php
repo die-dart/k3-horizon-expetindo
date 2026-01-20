@@ -47,8 +47,12 @@ $pathParts = array_filter(explode('/', $path));
 $resource = $pathParts[0] ?? '';
 $id = $pathParts[1] ?? null;
 
-// Authentication - all endpoints require auth
-$auth = authenticate();
+// Authentication - only required for write operations (POST, PUT, DELETE)
+// GET requests are public for viewing content
+$auth = null;
+if ($method !== 'GET') {
+    $auth = authenticate();
+}
 
 // Router - Match resource and method
 try {
