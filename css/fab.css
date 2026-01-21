@@ -1,78 +1,225 @@
-/* Floating Action Button (FAB) Styles */
+/* ===== FLOATING ACTION BUTTON (FAB) STYLES ===== */
 .fab-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: fabEntrance 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* FAB Entrance Animation */
+@keyframes fabEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Main FAB Button */
 .fab-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background-color: #ffffff;
-    /* White to match GIF background */
-    color: #1562BC;
-    /* Corporate Blue for text/icon context */
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    gap: 10px;
+    padding: 8px 16px 8px 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(21, 98, 188, 0.1);
     text-decoration: none;
     cursor: pointer;
-    border: none;
-    outline: none;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 2px solid rgba(21, 98, 188, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: floatingPulse 3s ease-in-out infinite;
 }
 
-.fab-btn:hover {
-    background-color: #f2f4f8;
-    /* Light gray/blue tint on hover */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+/* Floating and Pulsing Animation */
+@keyframes floatingPulse {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(21, 98, 188, 0.1);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(21, 98, 188, 0.2);
+    }
 }
 
-.fab-icon {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
+/* Icon Wrapper with Circular Background */
+.fab-icon-wrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    border: 2px solid #1e3a5f;
+    animation: iconPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+/* Icon Pulse Animation */
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(21, 98, 188, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    }
 }
 
 .fab-icon-img {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     border-radius: 50%;
+    background: transparent;
+    animation: iconRotate 2s ease-in-out infinite;
 }
 
-/* Tooltip (Optional, for better UX) */
-.fab-btn::after {
-    content: "Download Jadwal";
-    position: absolute;
-    right: 70px;
-    background-color: #333;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    pointer-events: none;
+/* Icon Rotation Animation */
+@keyframes iconRotate {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-5deg) scale(1.05);
+    }
+
+    75% {
+        transform: rotate(5deg) scale(1.05);
+    }
+}
+
+/* Text Label */
+.fab-text {
     font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e3a5f;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+    text-align: left;
+    white-space: nowrap;
+    animation: textSlide 3s ease-in-out infinite;
 }
 
-.fab-btn:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-5px);
+/* Text Slide Animation */
+@keyframes textSlide {
+
+    0%,
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(3px);
+        opacity: 0.9;
+    }
 }
 
-/* Mobile Responsiveness */
+/* Hover Effects */
+.fab-btn:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(21, 98, 188, 0.3),
+        0 0 0 2px rgba(21, 98, 188, 0.3);
+    border-color: #1562BC;
+    animation: none;
+    /* Stop floating animation on hover */
+}
+
+.fab-btn:hover .fab-icon-wrapper {
+    transform: rotate(360deg) scale(1.1);
+    border-color: #8db83e;
+    animation: none;
+    /* Stop pulse on hover */
+}
+
+.fab-btn:hover .fab-icon-img {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+/* Icon Bounce on Hover */
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    75% {
+        transform: scale(1.05);
+    }
+}
+
+.fab-btn:hover .fab-text {
+    color: #1562BC;
+    transform: translateX(5px);
+}
+
+/* Active/Click State */
+.fab-btn:active {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Shimmer Effect on Background */
+.fab-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%);
+    }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px) {
     .fab-container {
         bottom: 20px;
@@ -80,18 +227,44 @@
     }
 
     .fab-btn {
+        padding: 10px 20px 10px 10px;
+        gap: 12px;
+    }
+
+    .fab-icon-wrapper {
+        width: 55px;
+        height: 55px;
+        border-width: 2px;
+    }
+
+    .fab-icon-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .fab-text {
+        font-size: 13px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 480px) {
+    .fab-btn {
+        padding: 8px 16px 8px 8px;
+        gap: 10px;
+    }
+
+    .fab-icon-wrapper {
         width: 50px;
         height: 50px;
     }
 
-    .fab-icon,
     .fab-icon-img {
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
     }
 
-    /* Hide tooltip on mobile to prevent clutter */
-    .fab-btn::after {
-        display: none;
+    .fab-text {
+        font-size: 12px;
     }
 }
