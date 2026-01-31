@@ -24,16 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceCards.forEach(card => {
             const cardCategory = card.dataset.category;
             const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
-            const cardDesc = card.querySelector('.card-description').textContent.toLowerCase();
+            const cardDescription = card.querySelector('.card-description').textContent.toLowerCase();
 
-            const matchCategory = (category === 'all' || cardCategory === category);
-            const matchSearch = cardTitle.includes(normalizedSearch) || cardDesc.includes(normalizedSearch);
+            const isCategoryMatch = category === 'all' || cardCategory === category;
+            const isSearchMatch = cardTitle.includes(normalizedSearch) || cardDescription.includes(normalizedSearch);
 
-            if (matchCategory && matchSearch) {
-                card.classList.remove('hide');
+            if (isCategoryMatch && isSearchMatch) {
+                card.style.display = 'flex'; // Explicitly show
+                setTimeout(() => card.classList.remove('hide'), 10);
                 visibleCount++;
             } else {
                 card.classList.add('hide');
+                setTimeout(() => card.style.display = 'none', 300); // Wait for transition
             }
         });
 

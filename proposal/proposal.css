@@ -92,8 +92,10 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1);
     min-height: auto;
-    width: 100%;
-    /* max-width: 500px; Remove fixed max-width restriction if needed, or keep to control layout */
+    width: 500px;
+    /* Fixed "paten" size aligned with BNSP preference */
+    max-width: 100%;
+    /* Ensure responsiveness */
     margin: 0 auto;
     background: white;
     /* Ensure diagrams have clean backing */
@@ -1041,4 +1043,116 @@ body {
     .footer-links {
         justify-content: center;
     }
+}
+
+/* ===== TABLE STYLES (Previously in HTML Head) ===== */
+.syllabus-table th,
+.syllabus-table td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.syllabus-table th {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+}
+
+.syllabus-table .header-row-1 th {
+    text-transform: uppercase;
+}
+
+.syllabus-table .section-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white !important;
+    font-weight: bold;
+    text-align: left;
+}
+
+.syllabus-table .section-header.dark {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.syllabus-table .content-row td:first-child {
+    text-align: left;
+}
+
+.syllabus-table .evaluasi-row {
+    background-color: #1e3c72;
+    color: white;
+    font-weight: bold;
+}
+
+.syllabus-table .jumlah-row {
+    background-color: #f39c12;
+    color: black;
+    font-weight: bold;
+}
+
+/* Override specific column widths */
+.syllabus-table td:nth-child(1),
+.syllabus-table th:nth-child(1) {
+    width: auto;
+}
+
+.syllabus-table td:nth-child(2),
+.syllabus-table td:nth-child(3),
+.syllabus-table th:nth-child(2),
+.syllabus-table th:nth-child(3) {
+    width: 80px;
+    white-space: nowrap;
+}
+
+/* ===== MOBILE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        /* Ensure title fits */
+    }
+
+
+}
+
+/* ===== HERO META LAYOUT (Restore for alignment) ===== */
+.hero-meta-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+}
+
+.hero-meta-wrapper .breadcrumb {
+    margin-bottom: 0 !important;
+}
+
+.hero-meta-wrapper .category-badge {
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+}
+
+/* Mobile Alignment for Meta Wrapper */
+@media (max-width: 992px) {
+    .hero-meta-wrapper {
+        justify-content: center;
+    }
+}
+
+/* ===== BADGE INSIDE BREADCRUMB ADJUSTMENT ===== */
+.breadcrumb .category-badge {
+    margin-bottom: 0 !important;
+    margin-left: 0.5rem;
+    /* Small spacing from the chevron */
+    padding: 4px 12px;
+    /* Smaller padding to fit inline */
+    font-size: 0.8rem;
+    /* Smaller font to match breadcrumb scale */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Ensure breadcrumb aligns items vertically */
+.breadcrumb {
+    align-items: center;
 }
