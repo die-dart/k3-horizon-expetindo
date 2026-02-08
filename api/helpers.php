@@ -140,20 +140,34 @@ function parseRoutePath(string $path, string $resource): array {
  */
 function enableCORS(): void {
     $origin = CORS_ALLOWED_ORIGINS;
+    $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
     
+    // For development, always allow the requesting origin
     if ($origin === '*') {
-        header('Access-Control-Allow-Origin: *');
+        // If it's a wildcard, echo back the requesting origin for credentialed requests
+        // or just use * for simple requests
+        if (!empty($requestOrigin)) {
+            header("Access-Control-Allow-Origin: $requestOrigin");
+        } else {
+            header('Access-Control-Allow-Origin: *');
+        }
     } else {
-        $allowedOrigins = explode(',', $origin);
-        $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
+        $allowedOrigins = array_map('trim', explode(',', $origin));
         
         if (in_array($requestOrigin, $allowedOrigins)) {
             header("Access-Control-Allow-Origin: $requestOrigin");
+        } elseif (!empty($requestOrigin)) {
+            // For local development, also allow common dev origins
+            $devOrigins = ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://localhost:3000'];
+            if (in_array($requestOrigin, $devOrigins)) {
+                header("Access-Control-Allow-Origin: $requestOrigin");
+            }
         }
     }
     
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+    header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Max-Age: 86400');
     
     // Handle preflight requests
