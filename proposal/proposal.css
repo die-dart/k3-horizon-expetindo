@@ -1161,3 +1161,10 @@ body {
 .breadcrumb {
     align-items: center;
 }
+
+/* BNSP Proposal Specific Table Styles */
+.syllabus-table.bnsp-table td:first-child,
+.syllabus-table.bnsp-table th:first-child {
+    width: 350px !important;
+    min-width: 250px;
+}
