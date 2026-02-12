@@ -511,14 +511,19 @@ body {
     padding: 1.2rem 1.5rem;
     color: var(--text-main);
     vertical-align: middle;
+    text-align: left;
 }
 
 .syllabus-table td:first-child {
     font-weight: 600;
     color: var(--text-main);
-    width: 150px;
+    width: 220px;
     text-align: center;
     border-right: 1px solid #eee;
+}
+
+.syllabus-table td:nth-child(2) {
+    text-align: left;
 }
 
 /* ===== SCHEDULE & LOCATION ===== */
