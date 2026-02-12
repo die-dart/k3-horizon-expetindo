@@ -38,6 +38,10 @@ async function fetchKemnakerProposal() {
 
     } catch (err) {
         console.error('Error fetching Kemnaker proposal:', err);
+    } finally {
+        if (typeof window.markDataLoaded === 'function') {
+            window.markDataLoaded();
+        }
     }
 }
 

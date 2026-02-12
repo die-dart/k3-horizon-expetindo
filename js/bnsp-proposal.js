@@ -38,6 +38,10 @@ async function fetchBnspProposal() {
 
     } catch (err) {
         console.error('Error fetching BNSP proposal:', err);
+    } finally {
+        if (typeof window.markDataLoaded === 'function') {
+            window.markDataLoaded();
+        }
     }
 }
 

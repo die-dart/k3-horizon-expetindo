@@ -23,386 +23,486 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Loading Screen Styles -->
+    <style>
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #eee;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ===== NAVIGATION BAR ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-container">
-            <a href="../index.html" class="navbar-brand">
-                <img src="../assets/images/header-logo-he.png" alt="PT Horizon Solusi Expertindo Logo"
-                    class="navbar-logo">
-            </a>
+    <!-- Loading Screen -->
+    <div id="page-loader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
 
-            <div class="navbar-menu" id="nav-menu">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="../index.html" class="nav-link">Beranda</a></li>
-                    <li class="nav-item"><a href="../about.html" class="nav-link">Tentang Kami</a></li>
-                    <li class="nav-item"><a href="../services.html" class="nav-link">Layanan</a></li>
-                    <li class="nav-item"><a href="../gallery.html" class="nav-link">Galeri</a></li>
-                    <li class="nav-item"><a href="../blog.html" class="nav-link">Berita</a></li>
-                </ul>
-                <a href="#contact" class="btn-contact">Hubungi Kami</a>
-            </div>
+    <div id="main-content">
 
-            <button class="mobile-menu-toggle" id="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+        <!-- ===== NAVIGATION BAR ===== -->
+        <nav class="navbar" id="navbar">
+            <div class="navbar-container">
+                <a href="../index.html" class="navbar-brand">
+                    <img src="../assets/images/header-logo-he.png" alt="PT Horizon Solusi Expertindo Logo"
+                        class="navbar-logo">
+                </a>
 
-    <!-- 1. HERO / HEADER SECTION -->
-    <header class="proposal-hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-meta-wrapper">
-                    <nav class="breadcrumb">
-                        <a href="../index.html">Beranda</a>
-                        <span>&gt;</span>
-                        <a href="../services.html">Layanan</a>
-                        <span>&gt;</span>
-                    </nav>
-                    <div class="category-badge">Sertifikasi BNSP</div>
-                </div>
-                <h1 class="hero-title">Penilai Penilaian Daur Hidup (Life Cycle Assessement)</h1>
-                <p class="hero-subtitle"></p>
-
-                <div class="hero-buttons">
-                    <a href="#" class="btn-proposal"><i class="fas fa-download"></i> Unduh Proposal</a>
-                    <a href="#" class="btn-online">Daftar Online</a>
-                    <a href="#" class="btn-offline">Daftar Offline</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="../assets/images/lca2.png" alt="Petugas K3 Kimia">
-            </div>
-        </div>
-    </header>
-
-    <!-- 2. TRAINING OVERVIEW SECTION -->
-    <section class="overview-section">
-        <div class="container">
-            <div class="section-grid">
-                <div class="content-block">
-                    <h2>Deskripsi Pelatihan</h2>
-                    <p>Keahlian dalam Perhitungan Nilai Daur Hidup menunjukkan perhatian terhadap pemeliharaan dan
-                        peningkatan kualitas lingkungan serta perlindungan kesehatan manusia. Hal ini mendorong
-                        organisasi atau perusahaan untuk lebih memperhatikan dampak lingkungan dari aktivitas, produk,
-                        dan jasa yang mereka miliki. Kinerja lingkungan perusahaan kini menjadi aspek yang sangat
-                        penting bagi pihak internal maupun eksternal yang berkepentingan. Untuk mencapai kinerja
-                        lingkungan yang baik, diperlukan komitmen organisasi terhadap pendekatan sistematis dan
-                        perbaikan berkelanjutan pada sistem manajemen lingkungan mereka.</p>
-                    <h2 style="margin-top: 1.5rem;">Dasar Hukum</h2>
-                    <p>Keputusan Menteri Ketenagakerjaan Republik Indonesia Nomor 037/SKKK.I/LCA.I/I/2019 tentang
-                        Penetapan Standar Kompetensi Kerja Nasional Indonesia Profesional Penilai Penilaian Daur Hidup
-                        (Life Cycle Assessement).</p>
+                <div class="navbar-menu" id="nav-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="../index.html" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="../about.html" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="../services.html" class="nav-link">Layanan</a></li>
+                        <li class="nav-item"><a href="../gallery.html" class="nav-link">Galeri</a></li>
+                        <li class="nav-item"><a href="../blog.html" class="nav-link">Berita</a></li>
+                    </ul>
+                    <a href="#contact" class="btn-contact">Hubungi Kami</a>
                 </div>
 
-                <!-- 3. INFORMATION GRID / TABLE -->
-                <div class="sidebar-column"
-                    style="display: flex; flex-direction: column; gap: 2rem; position: sticky; top: 100px;">
-                    <div class="info-card">
-                        <h3
-                            style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
-                            PERSYARATAN</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Scan Ijazah Terakhir</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Scan KTP</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Surat Keterangan Kerja</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>CV</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Jobdesc</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Laporan Kerja</span>
-                            </li>
-                            <li style="display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Pas Foto Background Merah</span>
-                            </li>
-                        </ul>
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 1. HERO / HEADER SECTION -->
+        <header class="proposal-hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-meta-wrapper">
+                        <nav class="breadcrumb">
+                            <a href="../index.html">Beranda</a>
+                            <span>&gt;</span>
+                            <a href="../services.html">Layanan</a>
+                            <span>&gt;</span>
+                        </nav>
+                        <div class="category-badge">Sertifikasi BNSP</div>
                     </div>
+                    <h1 class="hero-title">Penilai Penilaian Daur Hidup (Life Cycle Assessement)</h1>
+                    <p class="hero-subtitle"></p>
 
-                    <div class="info-card">
-                        <h3
-                            style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
-                            FASILITAS</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Sertifikat Pelatihan</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Sertifikat BNSP (Jika Kompeten)</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Training kit</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Coffebreak and Lunch</span>
-                            </li>
-                            <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Materi Pelatihan</span>
-                            </li>
-                            <li style="display: flex; align-items: center; color: #555;">
-                                <i class="fas fa-check-circle"
-                                    style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
-                                <span>Meetingroom</span>
-                            </li>
-                        </ul>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-proposal"><i class="fas fa-download"></i> Unduh Proposal</a>
+                        <a href="#" class="btn-online">Daftar Online</a>
+                        <a href="#" class="btn-offline">Daftar Offline</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- 5. TRAINING MATERIALS / SYLLABUS -->
-    <section class="syllabus-section">
-        <div class="container">
-            <div class="section-head">
-                <h2>UNIT KOMPETENSI</h2>
-                <p>Kurikulum komprehensif yang disusun berdasarkan standar kompetensi nasional.</p>
-            </div>
-
-            <div class="syllabus-table-container">
-                <table class="syllabus-table">
-                    <thead>
-                        <tr>
-                            <th>KODE UNIT</th>
-                            <th>JUDUL UNIT KOMPETENSI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>AILCA.72109.001.01 </td>
-                            <td>Kebijakan dan Peraturan Perundangan K3 di Indonesia</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.002.01</td>
-                            <td>Dasar-dasar K3 dan Pengetahuan Bahan Kimia Berbahaya</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.003.01</td>
-                            <td>Identifikasi, Evaluasi, dan Pengendalian Bahaya Kimia</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.004.01</td>
-                            <td>Lembar Data Keselamatan Bahan (LDKB) dan Labeling</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.005.01</td>
-                            <td>Prosedur Kerja Aman (SOP) dan Tanggap Darurat</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.006.01</td>
-                            <td>Penyimpanan dan Pengangkutan Bahan Kimia Berbahaya</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.007.01</td>
-                            <td>Merencanakan Suatu Program yang Sesuai Dengan Hasil Penilaian Daur Hidup (LCA) </td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.008.01</td>
-                            <td>Melakukan Evaluasi dan Perbaikan Program Lingkungan</td>
-                        </tr>
-                        <tr>
-                            <td>AILCA.72109.009.01</td>
-                            <td>Melakukan Pembuatan Laporan Penilaian Daur Hidup</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SCHEDULE & LOCATION -->
-    <section class="schedule-section">
-        <div class="container">
-            <div class="section-head">
-                <h2>Jadwal & Lokasi</h2>
-                <p>Pilih jadwal terdekat yang sesuai dengan waktu Anda.</p>
-            </div>
-
-            <div class="schedule-card">
-                <div class="schedule-info">
-                    <div class="schedule-box">
-                        <h4>Tanggal</h4>
-                        <p>Coming Soon</p>
-                    </div>
-                    <div class="schedule-box">
-                        <h4>Lokasi</h4>
-                        <p>Coming Soon</p>
-                    </div>
-                </div>
-                <div class="schedule-status">
-                    <span class="category-badge" style="background: #27ae60; color: white;">Open Registration</span>
+                <div class="hero-image">
+                    <img src="../assets/images/lca2.png" alt="Petugas K3 Kimia">
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- 7. DETAILED SCHEDULE & REGISTRATION -->
-    <section class="schedule-new-section">
-        <div class="container">
-            <div class="schedule-grid-new">
-                <!-- ONLINE CLASS CARD -->
-                <div class="schedule-card-modern">
-                    <div class="card-top-header">
-                        <span class="class-type-badge">Online Class</span>
+        <!-- 2. TRAINING OVERVIEW SECTION -->
+        <section class="overview-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="content-block">
+                        <h2>Deskripsi Pelatihan</h2>
+                        <p>Keahlian dalam Perhitungan Nilai Daur Hidup menunjukkan perhatian terhadap pemeliharaan dan
+                            peningkatan kualitas lingkungan serta perlindungan kesehatan manusia. Hal ini mendorong
+                            organisasi atau perusahaan untuk lebih memperhatikan dampak lingkungan dari aktivitas,
+                            produk,
+                            dan jasa yang mereka miliki. Kinerja lingkungan perusahaan kini menjadi aspek yang sangat
+                            penting bagi pihak internal maupun eksternal yang berkepentingan. Untuk mencapai kinerja
+                            lingkungan yang baik, diperlukan komitmen organisasi terhadap pendekatan sistematis dan
+                            perbaikan berkelanjutan pada sistem manajemen lingkungan mereka.</p>
+                        <h2 style="margin-top: 1.5rem;">Dasar Hukum</h2>
+                        <p>Keputusan Menteri Ketenagakerjaan Republik Indonesia Nomor 037/SKKK.I/LCA.I/I/2019 tentang
+                            Penetapan Standar Kompetensi Kerja Nasional Indonesia Profesional Penilai Penilaian Daur
+                            Hidup
+                            (Life Cycle Assessement).</p>
                     </div>
-                    <img src="../assets/images/sample-brosur.jpg" alt="Brosur Petugas K3 Kimia Online"
-                        class="card-brochure-image">
-                    <div class="card-footer">
-                        <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
-                        <div class="footer-links">
-                            <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
-                            <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166 2025</a>
+
+                    <!-- 3. INFORMATION GRID / TABLE -->
+                    <div class="sidebar-column"
+                        style="display: flex; flex-direction: column; gap: 2rem; position: sticky; top: 100px;">
+                        <div class="info-card">
+                            <h3
+                                style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                                PERSYARATAN</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Scan Ijazah Terakhir</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Scan KTP</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Surat Keterangan Kerja</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>CV</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Jobdesc</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Laporan Kerja</span>
+                                </li>
+                                <li style="display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Pas Foto Background Merah</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3
+                                style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                                FASILITAS</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Sertifikat Pelatihan</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Sertifikat BNSP (Jika Kompeten)</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Training kit</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Coffebreak and Lunch</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Materi Pelatihan</span>
+                                </li>
+                                <li style="display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Meetingroom</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- OFFLINE CLASS CARD -->
-                <div class="schedule-card-modern">
-                    <div class="card-top-header">
-                        <span class="class-type-badge">Offline Class</span>
-                    </div>
-                    <img src="../assets/images/sample-brosur.jpg" alt="Brosur Petugas K3 Kimia Offline"
-                        class="card-brochure-image">
-                    <div class="card-footer">
-                        <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
-                        <div class="footer-links">
-                            <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
-                            <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166 2025</a>
+
+        <!-- 5. TRAINING MATERIALS / SYLLABUS -->
+        <section class="syllabus-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>UNIT KOMPETENSI</h2>
+                    <p>Kurikulum komprehensif yang disusun berdasarkan standar kompetensi nasional.</p>
+                </div>
+
+                <div class="syllabus-table-container">
+                    <table class="syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>KODE UNIT</th>
+                                <th>JUDUL UNIT KOMPETENSI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AILCA.72109.001.01 </td>
+                                <td>Kebijakan dan Peraturan Perundangan K3 di Indonesia</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.002.01</td>
+                                <td>Dasar-dasar K3 dan Pengetahuan Bahan Kimia Berbahaya</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.003.01</td>
+                                <td>Identifikasi, Evaluasi, dan Pengendalian Bahaya Kimia</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.004.01</td>
+                                <td>Lembar Data Keselamatan Bahan (LDKB) dan Labeling</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.005.01</td>
+                                <td>Prosedur Kerja Aman (SOP) dan Tanggap Darurat</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.006.01</td>
+                                <td>Penyimpanan dan Pengangkutan Bahan Kimia Berbahaya</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.007.01</td>
+                                <td>Merencanakan Suatu Program yang Sesuai Dengan Hasil Penilaian Daur Hidup (LCA) </td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.008.01</td>
+                                <td>Melakukan Evaluasi dan Perbaikan Program Lingkungan</td>
+                            </tr>
+                            <tr>
+                                <td>AILCA.72109.009.01</td>
+                                <td>Melakukan Pembuatan Laporan Penilaian Daur Hidup</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SCHEDULE & LOCATION -->
+        <section class="schedule-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Jadwal & Lokasi</h2>
+                    <p>Pilih jadwal terdekat yang sesuai dengan waktu Anda.</p>
+                </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-info">
+                        <div class="schedule-box">
+                            <h4>Tanggal</h4>
+                            <p>Coming Soon</p>
+                        </div>
+                        <div class="schedule-box">
+                            <h4>Lokasi</h4>
+                            <p>Coming Soon</p>
                         </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. TRAINING BENEFITS SECTION -->
-    <section class="benefits-section">
-        <div class="container">
-            <div class="section-head">
-                <h2>Manfaat Pelatihan</h2>
-                <p>Mengapa Anda harus mengikuti program sertifikasi ini bersama kami?</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-award"></i></div>
-                    <h3>Pengakuan Resmi</h3>
-                    <p>Mendapatkan sertifikat kompetensi resmi yang diakui secara nasional sebagai bukti kredibilitas
-                        profesional.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Kepatuhan Regulasi</h3>
-                    <p>Memastikan kepatuhan terhadap regulasi dan standar industri yang berlaku guna mendukung
-                        operasional perusahaan.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
-                    <h3>Kompetensi Teknis</h3>
-                    <p>Mengembangkan keterampilan teknis dan pemahaman mendalam untuk menangani tantangan operasional
-                        secara efektif.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Peluang Karir</h3>
-                    <p>Meningkatkan potensi karir dan daya saing profesional di berbagai sektor industri yang semakin
-                        kompetitif.</p>
+                    <div class="schedule-status">
+                        <span class="category-badge" style="background: #27ae60; color: white;">Open Registration</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column footer-brand">
-                <h3 class="footer-brand-title">PT Horizon Solusi Expertindo</h3>
-                <p class="footer-brand-text">Pusat pelatihan dan sertifikasi kompetensi terpercaya untuk kemajuan karier
-                    dan bisnis Anda.</p>
+        <!-- 7. DETAILED SCHEDULE & REGISTRATION -->
+        <section class="schedule-new-section">
+            <div class="container">
+                <div class="schedule-grid-new">
+                    <!-- ONLINE CLASS CARD -->
+                    <div class="schedule-card-modern">
+                        <div class="card-top-header">
+                            <span class="class-type-badge">Online Class</span>
+                        </div>
+                        <img src="../assets/images/sample-brosur.jpg" alt="Brosur Petugas K3 Kimia Online"
+                            class="card-brochure-image">
+                        <div class="card-footer">
+                            <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
+                            <div class="footer-links">
+                                <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
+                                <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166
+                                    2025</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OFFLINE CLASS CARD -->
+                    <div class="schedule-card-modern">
+                        <div class="card-top-header">
+                            <span class="class-type-badge">Offline Class</span>
+                        </div>
+                        <img src="../assets/images/sample-brosur.jpg" alt="Brosur Petugas K3 Kimia Offline"
+                            class="card-brochure-image">
+                        <div class="card-footer">
+                            <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
+                            <div class="footer-links">
+                                <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
+                                <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166
+                                    2025</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="footer-column">
-                <h4 class="footer-heading">Layanan</h4>
-                <ul class="footer-links">
-                    <li><a href="services.html" class="footer-link">Pelatihan BNSP</a></li>
-                    <li><a href="services.html" class="footer-link">Sertifikasi Kemnaker</a></li>
-                    <li><a href="services.html" class="footer-link">Konsultasi K3</a></li>
-                </ul>
+        <!-- 4. TRAINING BENEFITS SECTION -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Manfaat Pelatihan</h2>
+                    <p>Mengapa Anda harus mengikuti program sertifikasi ini bersama kami?</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                        <h3>Pengakuan Resmi</h3>
+                        <p>Mendapatkan sertifikat kompetensi resmi yang diakui secara nasional sebagai bukti
+                            kredibilitas
+                            profesional.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Kepatuhan Regulasi</h3>
+                        <p>Memastikan kepatuhan terhadap regulasi dan standar industri yang berlaku guna mendukung
+                            operasional perusahaan.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
+                        <h3>Kompetensi Teknis</h3>
+                        <p>Mengembangkan keterampilan teknis dan pemahaman mendalam untuk menangani tantangan
+                            operasional
+                            secara efektif.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Peluang Karir</h3>
+                        <p>Meningkatkan potensi karir dan daya saing profesional di berbagai sektor industri yang
+                            semakin
+                            kompetitif.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="footer-column">
-                <h4 class="footer-heading">Kontak</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:admin@horizonexpert.id" class="footer-link">Email Kami</a></li>
-                    <li><a href="index.html#contact" class="footer-link">Lokasi Kantor</a></li>
-                    <li><a href="https://wa.me/6282261662025" class="footer-link">WhatsApp</a></li>
-                </ul>
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column footer-brand">
+                    <h3 class="footer-brand-title">PT Horizon Solusi Expertindo</h3>
+                    <p class="footer-brand-text">Pusat pelatihan dan sertifikasi kompetensi terpercaya untuk kemajuan
+                        karier
+                        dan bisnis Anda.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html" class="footer-link">Pelatihan BNSP</a></li>
+                        <li><a href="services.html" class="footer-link">Sertifikasi Kemnaker</a></li>
+                        <li><a href="services.html" class="footer-link">Konsultasi K3</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Kontak</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:admin@horizonexpert.id" class="footer-link">Email Kami</a></li>
+                        <li><a href="index.html#contact" class="footer-link">Lokasi Kantor</a></li>
+                        <li><a href="https://wa.me/6282261662025" class="footer-link">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Tentang Kami</a></li>
+                        <li><a href="index.html#blog" class="footer-link">Blog & Artikel</a></li>
+                        <li><a href="gallery.html" class="footer-link">Galeri Foto</a></li>
+                    </ul>
+                </div>
             </div>
+        </footer>
 
-            <div class="footer-column">
-                <h4 class="footer-heading">Perusahaan</h4>
-                <ul class="footer-links">
-                    <li><a href="about.html" class="footer-link">Tentang Kami</a></li>
-                    <li><a href="index.html#blog" class="footer-link">Blog & Artikel</a></li>
-                    <li><a href="gallery.html" class="footer-link">Galeri Foto</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+        <!-- Mobile Menu Script -->
+        <script>
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
 
-    <!-- Mobile Menu Script -->
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
+        <!-- BNSP Proposal API Integration -->
+        <script src="../js/bnsp-proposal.js"></script>
+
+    </div><!-- /#main-content -->
+
+    <!-- Loading Screen Script -->
     <script>
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = document.getElementById('nav-menu');
+        window.windowLoaded = false;
+        window.dataLoaded = false;
 
-        mobileToggle.addEventListener('click', () => {
-            mobileToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+        function checkReady() {
+            if (window.windowLoaded && window.dataLoaded) {
+                hideLoader();
+            }
+        }
+
+        function hideLoader() {
+            const loader = document.getElementById("page-loader");
+            const content = document.getElementById("main-content");
+
+            if (loader && loader.style.display !== "none") {
+                loader.style.display = "none";
+                content.style.display = "block";
+                setTimeout(() => {
+                    content.style.opacity = "1";
+                }, 50);
+            }
+        }
+
+        // Expose function for API script to call
+        window.markDataLoaded = function () {
+            window.dataLoaded = true;
+            checkReady();
+        };
+
+        window.addEventListener("load", function () {
+            window.windowLoaded = true;
+            checkReady();
+
+            // Fallback: If data loading takes too long (e.g. API error), force show content after 5 seconds
+            setTimeout(() => {
+                if (!window.dataLoaded) {
+                    console.warn("Data loading timed out or failed. Forcing content display.");
+                    hideLoader();
+                }
+            }, 5000);
         });
     </script>
-
-    <!-- BNSP Proposal API Integration -->
-    <script src="../js/bnsp-proposal.js"></script>
 </body>
 
 </html>
