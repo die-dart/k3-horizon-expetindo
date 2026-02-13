@@ -2,14 +2,134 @@
  * ===== TRAINING PROGRAMS CAROUSEL =====
  * Manages the training programs carousel functionality
  * Features:
+ * - Fetches data from API (BNSP & Kemnaker)
+ * - Dynamic card rendering
  * - Responsive card display (3 on desktop, 2 on tablet, 1 on mobile)
- * - Previous/Next navigation buttons
- * - Keyboard arrow key navigation
- * - Touch swipe support for mobile devices
- * - Automatic recalculation on window resize
+ * - Previous/Next navigation
+ * - Touch swipe support
  */
 
+const API_BASE_URL = `http://${window.location.hostname}:9999/api`;
+
 document.addEventListener('DOMContentLoaded', function () {
+    initCarousel();
+});
+
+async function initCarousel() {
+    try {
+        // Fetch data from API
+        const [bnspData, kemnakerData] = await Promise.all([
+            fetchProposals('bnspProposals'),
+            fetchProposals('kemnakerProposals')
+        ]);
+
+        // Normalize and combine data
+        const allProposals = [
+            ...bnspData.map(p => normalizeProposal(p, 'bnsp')),
+            ...kemnakerData.map(p => normalizeProposal(p, 'kemnaker'))
+        ];
+
+        // Render cards to DOM
+        renderCarouselCards(allProposals);
+
+        // Initialize Carousel Logic (after content is loaded)
+        setupCarouselLogic();
+
+    } catch (error) {
+        console.error('Failed to initialize carousel:', error);
+        // Optional: Render error state or fallback content
+    }
+}
+
+async function fetchProposals(endpoint) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/${endpoint}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const json = await response.json();
+        return json.data || [];
+    } catch (err) {
+        console.error(`Error fetching ${endpoint}:`, err);
+        return [];
+    }
+}
+
+function normalizeProposal(proposal, type) {
+    // Choose appropriate image placeholder
+    const defaultImage = type === 'bnsp' ? 'assets/images/lca2.png' : 'assets/images/muda-linker.png';
+
+    // Format image URL if needed (e.g. Google Drive)
+    const imageSrc = formatGoogleDriveUrl(proposal.image_title) ||
+        proposal.image_online ||
+        proposal.image_offline ||
+        defaultImage;
+
+    return {
+        id: proposal.id,
+        title: proposal.title,
+        description: proposal.training_description || '',
+        image: imageSrc,
+        type: type,
+        detailUrl: type === 'bnsp'
+            ? `proposal/bnsp.html?id=${proposal.id}`
+            : `proposal/kemnaker.html?id=${proposal.id}`
+    };
+}
+
+function formatGoogleDriveUrl(url) {
+    if (!url) return null;
+    let fileId = null;
+    const viewMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (viewMatch && viewMatch[1]) fileId = viewMatch[1];
+
+    if (!fileId) {
+        const idMatch = url.match(/id=([a-zA-Z0-9_-]+)/);
+        if (idMatch && idMatch[1]) fileId = idMatch[1];
+    }
+
+    if (fileId) {
+        return `https://drive.google.com/thumbnail?id=${fileId}&sz=w500`;
+    }
+    return url;
+}
+
+function renderCarouselCards(proposals) {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+
+    if (proposals.length === 0) {
+        track.innerHTML = '<div style="text-align:center; width:100%; padding:20px;">Belum ada program training tersedia.</div>';
+        return;
+    }
+
+    const html = proposals.map(proposal => {
+        // Sanitize description
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = proposal.description;
+        const cleanDesc = tempDiv.textContent || tempDiv.innerText || '';
+        const shortDesc = cleanDesc.length > 120 ? cleanDesc.substring(0, 120) + '...' : cleanDesc;
+
+        return `
+            <article class="training-card">
+                <div class="card-image-wrapper">
+                    <img src="${proposal.image}" alt="${proposal.title}" class="card-image" onerror="this.src='assets/images/logo-he.png'">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">${proposal.title}</h3>
+                    <p class="card-description">
+                        ${shortDesc}
+                    </p>
+                    <div class="card-footer">
+                        <a href="${proposal.detailUrl}" class="card-link">Lihat Detail Kelas</a>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join('');
+
+    track.innerHTML = html;
+}
+
+function setupCarouselLogic() {
     // ===== DOM ELEMENT REFERENCES =====
     const track = document.querySelector('.carousel-track');
     const prevBtn = document.querySelector('.carousel-prev');
@@ -26,15 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let cardsPerView = 3; // Default for desktop
 
     // ===== RESPONSIVE CARD CALCULATION =====
-    /**
-     * Calculate how many cards to show based on screen width
-     * Mobile (<=640px): 1 card
-     * Tablet (<=992px): 2 cards
-     * Desktop (>992px): 3 cards
-     */
     function updateCardsPerView() {
         const width = window.innerWidth;
-
         if (width <= 640) {
             cardsPerView = 1;
         } else if (width <= 992) {
@@ -42,25 +155,16 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             cardsPerView = 3;
         }
-
         updateCarousel();
     }
 
     // ===== CAROUSEL POSITION UPDATE =====
-    /**
-     * Update carousel position and button states
-     * Calculates offset based on card width and gap
-     */
     function updateCarousel() {
         const cardWidth = cards[0].offsetWidth;
-
-        // Dynamically get the gap from CSS to ensure precision across breakpoints
         const computedStyle = window.getComputedStyle(track);
         const gap = parseInt(computedStyle.gap) || 0;
-
         const offset = currentIndex * (cardWidth + gap);
 
-        // Apply transform to slide carousel
         track.style.transform = `translateX(-${offset}px)`;
 
         // Update button disabled states
@@ -68,10 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
         nextBtn.disabled = currentIndex >= cards.length - cardsPerView;
     }
 
-    // ===== NAVIGATION BUTTON HANDLERS =====
-    /**
-     * Previous button: Move carousel left
-     */
+    // ===== EVENT LISTENERS =====
     prevBtn.addEventListener('click', function () {
         if (currentIndex > 0) {
             currentIndex--;
@@ -79,9 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    /**
-     * Next button: Move carousel right
-     */
     nextBtn.addEventListener('click', function () {
         if (currentIndex < cards.length - cardsPerView) {
             currentIndex++;
@@ -89,74 +187,40 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // ===== WINDOW RESIZE HANDLER =====
-    /**
-     * Handle window resize with debounce
-     * Resets carousel to first card on resize
-     */
     let resizeTimer;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
-            currentIndex = 0; // Reset to first card on resize
+            currentIndex = 0;
             updateCardsPerView();
-        }, 250); // 250ms debounce
+        }, 250);
     });
 
-    // ===== KEYBOARD NAVIGATION =====
-    /**
-     * Enable arrow key navigation for accessibility
-     * Left Arrow: Previous card
-     * Right Arrow: Next card
-     */
+    // Keyboard Navigation
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
-            prevBtn.click();
-        } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
-            nextBtn.click();
-        }
+        if (e.key === 'ArrowLeft' && !prevBtn.disabled) prevBtn.click();
+        else if (e.key === 'ArrowRight' && !nextBtn.disabled) nextBtn.click();
     });
 
-    // ===== TOUCH SWIPE SUPPORT =====
-    /**
-     * Enable swipe gestures on touch devices
-     * Swipe left: Next card
-     * Swipe right: Previous card
-     */
+    // Touch Swipe
     let touchStartX = 0;
     let touchEndX = 0;
-    const swipeThreshold = 50; // Minimum distance for swipe detection
 
-    // Capture touch start position
-    track.addEventListener('touchstart', function (e) {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+    track.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, { passive: true });
 
-    // Capture touch end position and handle swipe
-    track.addEventListener('touchend', function (e) {
+    track.addEventListener('touchend', e => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
     }, { passive: true });
 
-    /**
-     * Process swipe gesture and trigger navigation
-     */
     function handleSwipe() {
         const diff = touchStartX - touchEndX;
-
-        // Only trigger if swipe exceeds threshold
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0 && !nextBtn.disabled) {
-                // Swipe left - go to next
-                nextBtn.click();
-            } else if (diff < 0 && !prevBtn.disabled) {
-                // Swipe right - go to previous
-                prevBtn.click();
-            }
+        if (Math.abs(diff) > 50) {
+            if (diff > 0 && !nextBtn.disabled) nextBtn.click();
+            else if (diff < 0 && !prevBtn.disabled) prevBtn.click();
         }
     }
 
-    // ===== INITIALIZATION =====
-    // Initialize carousel with correct card count and position
+    // Initial setup
     updateCardsPerView();
-});
+}
