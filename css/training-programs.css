@@ -1,6 +1,6 @@
 /* ===== TRAINING PROGRAMS SECTION ===== */
 .training-programs {
-    background-color: #ffffff;
+    background-color: #f8fafc;
     padding: 80px 20px;
     position: relative;
 }
@@ -86,56 +86,52 @@
 }
 
 /* ===== TRAINING CARDS ===== */
+/* ===== TRAINING CARDS ===== */
 .training-card {
     flex: 0 0 calc(33.333% - 16px);
     background-color: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid #E5E7EB;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .training-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+/* Card Image Section */
 /* Card Image Section */
 .card-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, #1A62B7 0%, #97ABBF 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
     position: relative;
+    overflow: hidden;
 }
 
-/* Different gradient for each card type */
-.card-image.bnsp {
-    background: linear-gradient(135deg, #1A62B7 0%, #2D7DD2 100%);
-}
-
-.card-image.kemnaker {
-    background: linear-gradient(135deg, #AD5B32 0%, #C97A4E 100%);
-}
-
+/* Remove old gradients */
+.card-image.bnsp,
+.card-image.kemnaker,
 .card-image.non-cert {
-    background: linear-gradient(135deg, #97ABBF 0%, #B8C7D4 100%);
+    background: none;
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
+.training-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Card Content Section */
 /* Card Content Section */
 .card-content {
     padding: 24px;
@@ -146,57 +142,58 @@
 
 .card-title {
     font-family: poppins;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #1F2937;
+    color: #1e293b;
     margin: 0 0 12px 0;
+    line-height: 1.4;
 }
 
 .card-description {
     font-family: poppins;
-    font-size: 15px;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: #6B7280;
-    margin: 0 0 20px 0;
+    color: #64748b;
+    margin: 0 0 24px 0;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Card Footer with Link */
+/* Card Footer with Link */
 .card-footer {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 16px;
-    border-top: 1px solid #F3F4F6;
+    padding-top: 0;
+    border-top: none;
+    margin-top: auto;
 }
 
 .card-link {
+    display: block;
+    width: 100%;
+    background-color: #559e6d;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
     font-family: poppins;
-    font-size: 15px;
     font-weight: 600;
-    color: #1A62B7;
+    font-size: 0.95rem;
     text-decoration: none;
-    transition: all 0.2s ease;
-    position: relative;
+    transition: background-color 0.3s ease;
 }
 
 .card-link:hover {
-    color: #AD5B32;
+    background-color: #438257;
+    color: #ffffff;
 }
 
-/* Underline animation on link hover */
+/* Remove underline animation since it's a button now */
 .card-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #AD5B32;
-    transition: width 0.3s ease;
-}
-
-.card-link:hover::after {
-    width: 100%;
+    display: none;
 }
 
 /* ===== CLIENT REVIEWS & TESTIMONIALS SECTION ===== */
@@ -349,4 +346,34 @@
     .carousel-track {
         transition: none;
     }
+}
+
+/* ===== SERVICES LINK ===== */
+.services-link-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.services-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: poppins;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A3A52;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.services-link:hover {
+    color: #1A62B7;
+}
+
+.services-link span {
+    transition: transform 0.3s ease;
+}
+
+.services-link:hover span {
+    transform: translateX(4px);
 }

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoryItems = document.querySelectorAll('.category-item');
-    const serviceCards = document.querySelectorAll('.creative-card');
+    const serviceCards = document.querySelectorAll('.program-card');
     const emptyState = document.getElementById('empty-state');
     const servicesGrid = document.querySelector('.program-grid');
     const pageTitle = document.querySelector('.page-title-group h1');
@@ -24,16 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceCards.forEach(card => {
             const cardCategory = card.dataset.category;
             const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
-            const cardDesc = card.querySelector('.card-description').textContent.toLowerCase();
+            const cardDescription = card.querySelector('.card-description').textContent.toLowerCase();
 
-            const matchCategory = (category === 'all' || cardCategory === category);
-            const matchSearch = cardTitle.includes(normalizedSearch) || cardDesc.includes(normalizedSearch);
+            const isCategoryMatch = category === 'all' || cardCategory === category;
+            const isSearchMatch = cardTitle.includes(normalizedSearch) || cardDescription.includes(normalizedSearch);
 
-            if (matchCategory && matchSearch) {
-                card.classList.remove('hide');
+            if (isCategoryMatch && isSearchMatch) {
+                card.style.display = 'flex'; // Explicitly show
+                setTimeout(() => card.classList.remove('hide'), 10);
                 visibleCount++;
             } else {
                 card.classList.add('hide');
+                setTimeout(() => card.style.display = 'none', 300); // Wait for transition
             }
         });
 
@@ -94,4 +96,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Filter Trigger
     const initialCategory = document.querySelector('.category-item.active').dataset.category;
     filterServices(initialCategory);
+
+    // Update Category Counts
+    function updateCategoryCounts() {
+        const totalCards = serviceCards.length;
+
+        // Update 'all' count
+        const allCountBadge = document.querySelector('.category-item[data-category="all"] .category-count');
+        if (allCountBadge) {
+            allCountBadge.textContent = totalCards;
+        }
+
+        // Update specific category counts
+        categoryItems.forEach(item => {
+            const category = item.dataset.category;
+            if (category !== 'all') {
+                const count = document.querySelectorAll(`.program-card[data-category="${category}"]`).length;
+                const countBadge = item.querySelector('.category-count');
+                if (countBadge) {
+                    countBadge.textContent = count;
+                }
+            }
+        });
+    }
+
+    updateCategoryCounts();
 });

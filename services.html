@@ -61,17 +61,9 @@
                     <nav class="category-list">
                         <a href="#" class="category-item active" data-category="all">Tampilkan Semua <span
                                 class="category-count">0</span></a>
-                        <a href="#" class="category-item" data-category="esdm">ESDM <span
-                                class="category-count">0</span></a>
-                        <a href="#" class="category-item" data-category="iso">ISO <span
-                                class="category-count">0</span></a>
-                        <a href="#" class="category-item" data-category="non-sertifikasi">Non Sertifikasi <span
-                                class="category-count">0</span></a>
-                        <a href="#" class="category-item" data-category="sertifikasi-sio">Perpanjangan SIO <span
-                                class="category-count">0</span></a>
                         <a href="#" class="category-item" data-category="sertifikasi-bnsp">Sertifikasi BNSP <span
                                 class="category-count">0</span></a>
-                        <a href="#" class="category-item" data-category="sertifikasi-kemnaker">Sertifikasi Kemnaker RI
+                        <a href="#" class="category-item" data-category="sertifikasi-kemnaker">Sertifikasi Kemnaker
                             <span class="category-count">0</span></a>
                     </nav>
                 </aside>
@@ -91,6 +83,56 @@
 
                     <!-- Program Grid -->
                     <div class="program-grid">
+                        <div class="program-card" data-category="sertifikasi-bnsp">
+                            <div class="card-image-wrapper">
+                                <img src="assets/images/lca2.png" alt="Penilai Penilaian Daur Hidup" class="card-image">
+                            </div>
+                            <div class="card-badges">
+                                <span class="badge-category">Sertifikasi BNSP</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Penilai Penilaian Daur Hidup (Life Cycle Assessment)</h3>
+                                <div class="card-meta">
+                                    <svg class="meta-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>4 Hari</span>
+                                </div>
+                                <p class="card-description">
+                                    Keahlian dalam Perhitungan Nilai Daur Hidup menunjukkan perhatian terhadap
+                                    pemeliharaan dan peningkatan kualitas lingkungan serta perlindungan kesehatan
+                                    manusia.
+                                </p>
+                                <a href="proposal/bnsp/lca.html" class="btn-card-detail">Lihat Detail Kelas</a>
+                            </div>
+                        </div>
+                        <div class="program-card" data-category="sertifikasi-kemnaker">
+                            <div class="card-image-wrapper">
+                                <img src="assets/images/muda-linker.png" alt="Ahli K3 Muda Lingkungan Kerja"
+                                    class="card-image">
+                            </div>
+                            <div class="card-badges">
+                                <span class="badge-category">Sertifikasi Kemnaker</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Ahli K3 Muda Lingkungan Kerja (HIMU)</h3>
+                                <div class="card-meta">
+                                    <svg class="meta-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>4 Hari</span>
+                                </div>
+                                <p class="card-description">
+                                    Membina kompetensi ahli K3 muda untuk mengelola dan memantau lingkungan kerja yang
+                                    aman,
+                                    sehat, dan sesuai regulasi.
+                                </p>
+                                <a href="proposal/kemnaker/higiene-industri.html" class="btn-card-detail">Lihat Detail
+                                    Kelas</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Empty State -->
@@ -162,6 +204,8 @@
     <!-- ===== SCRIPTS ===== -->
     <script src="js/navbar.js"></script>
     <script src="js/services.js"></script>
+    <!-- Services API Integration for dynamic proposals -->
+    <script src="js/services-api.js"></script>
 </body>
 
 </html>

@@ -21,6 +21,10 @@ require_once __DIR__ . '/Article.php';
 require_once __DIR__ . '/FormRegister.php';
 require_once __DIR__ . '/Gallery.php';
 require_once __DIR__ . '/ImageCategory.php';
+require_once __DIR__ . '/ProposalCategory.php';
+require_once __DIR__ . '/BnspProposal.php';
+require_once __DIR__ . '/KemnakerProposal.php';
+require_once __DIR__ . '/ImageProxy.php';
 
 // Enable CORS
 enableCORS();
@@ -32,12 +36,16 @@ $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 // Remove query string from URI
 $path = parse_url($requestUri, PHP_URL_PATH);
 
-// Smart base path detection
-// This handles /api, /dev/api, or any subdirectory structure
-$scriptPath = dirname($_SERVER['SCRIPT_NAME']); // e.g., "/dev/api" or "/api"
-if ($scriptPath !== '/' && strpos($path, $scriptPath) === 0) {
-    $path = substr($path, strlen($scriptPath));
+// Remove base path if API is not in root
+// Support both /api (local development) and /php_api (production)
+$basePaths = ['/api', '/php_api'];
+foreach ($basePaths as $basePath) {
+    if (strpos($path, $basePath) === 0) {
+        $path = substr($path, strlen($basePath));
+        break;
+    }
 }
+
 // Clean up path
 $path = trim($path, '/');
 
@@ -46,18 +54,15 @@ $pathParts = array_filter(explode('/', $path));
 $resource = $pathParts[0] ?? '';
 $id = $pathParts[1] ?? null;
 
-// Authentication - only required for write operations (POST, PUT, DELETE)
-// GET requests are public for viewing content
-// Exception: POST /formRegisters is public (user registration form)
-$auth = null;
-if ($method !== 'GET') {
-    // Allow public access to form registration
-    $isPublicFormSubmit = ($method === 'POST' && $resource === 'formRegisters');
-    
-    if (!$isPublicFormSubmit) {
-        $auth = authenticate();
-    }
+// Handle image proxy BEFORE authentication (public access)
+if ($resource === 'imageProxy' && $method === 'GET') {
+    $proxy = new ImageProxy();
+    $proxy->handle();
+    exit;
 }
+
+// Authentication - all endpoints require auth
+$auth = authenticate();
 
 // Router - Match resource and method
 try {
@@ -278,6 +283,135 @@ try {
             break;
             
         // ===========================
+        // PROPOSAL CATEGORY ROUTES
+        // ===========================
+        case 'proposalCategorys':
+            $controller = new ProposalCategory();
+            
+            switch ($method) {
+                case 'GET':
+                    if ($id) {
+                        // GET /proposalCategorys/{name}
+                        $controller->findByName($id);
+                    } else {
+                        // GET /proposalCategorys
+                        $controller->findAll();
+                    }
+                    break;
+                    
+                case 'POST':
+                    // POST /proposalCategorys
+                    $controller->create();
+                    break;
+                    
+                case 'PUT':
+                    // PUT /proposalCategorys/{name}
+                    if (!$id) {
+                        errorResponse('Name is required for update', 400);
+                    }
+                    $controller->update($id);
+                    break;
+                    
+                case 'DELETE':
+                    // DELETE /proposalCategorys/{name}
+                    if (!$id) {
+                        errorResponse('Name is required for delete', 400);
+                    }
+                    $controller->delete($id);
+                    break;
+                    
+                default:
+                    errorResponse('Method not allowed', 405);
+            }
+            break;
+            
+        // ===========================
+        // BNSP PROPOSAL ROUTES
+        // ===========================
+        case 'bnspProposals':
+            $controller = new BnspProposal();
+            
+            switch ($method) {
+                case 'GET':
+                    if ($id) {
+                        // GET /bnspProposals/{id}
+                        $controller->findById($id);
+                    } else {
+                        // GET /bnspProposals
+                        $controller->findAll();
+                    }
+                    break;
+                    
+                case 'POST':
+                    // POST /bnspProposals
+                    $controller->create();
+                    break;
+                    
+                case 'PUT':
+                    // PUT /bnspProposals/{id}
+                    if (!$id) {
+                        errorResponse('ID is required for update', 400);
+                    }
+                    $controller->update($id);
+                    break;
+                    
+                case 'DELETE':
+                    // DELETE /bnspProposals/{id}
+                    if (!$id) {
+                        errorResponse('ID is required for delete', 400);
+                    }
+                    $controller->delete($id);
+                    break;
+                    
+                default:
+                    errorResponse('Method not allowed', 405);
+            }
+            break;
+            
+        // ===========================
+        // KEMNAKER PROPOSAL ROUTES
+        // ===========================
+        case 'kemnakerProposals':
+            $controller = new KemnakerProposal();
+            
+            switch ($method) {
+                case 'GET':
+                    if ($id) {
+                        // GET /kemnakerProposals/{id}
+                        $controller->findById($id);
+                    } else {
+                        // GET /kemnakerProposals
+                        $controller->findAll();
+                    }
+                    break;
+                    
+                case 'POST':
+                    // POST /kemnakerProposals
+                    $controller->create();
+                    break;
+                    
+                case 'PUT':
+                    // PUT /kemnakerProposals/{id}
+                    if (!$id) {
+                        errorResponse('ID is required for update', 400);
+                    }
+                    $controller->update($id);
+                    break;
+                    
+                case 'DELETE':
+                    // DELETE /kemnakerProposals/{id}
+                    if (!$id) {
+                        errorResponse('ID is required for delete', 400);
+                    }
+                    $controller->delete($id);
+                    break;
+                    
+                default:
+                    errorResponse('Method not allowed', 405);
+            }
+            break;
+            
+        // ===========================
         // DEFAULT - NOT FOUND
         // ===========================
         default:
@@ -321,6 +455,27 @@ try {
                             'POST /imageCategorys',
                             'PUT /imageCategorys/{id}',
                             'DELETE /imageCategorys/{id}'
+                        ],
+                        'Proposal Categories' => [
+                            'GET /proposalCategorys',
+                            'GET /proposalCategorys/{name}',
+                            'POST /proposalCategorys',
+                            'PUT /proposalCategorys/{name}',
+                            'DELETE /proposalCategorys/{name}'
+                        ],
+                        'BNSP Proposals' => [
+                            'GET /bnspProposals',
+                            'GET /bnspProposals/{id}',
+                            'POST /bnspProposals',
+                            'PUT /bnspProposals/{id}',
+                            'DELETE /bnspProposals/{id}'
+                        ],
+                        'Kemnaker Proposals' => [
+                            'GET /kemnakerProposals',
+                            'GET /kemnakerProposals/{id}',
+                            'POST /kemnakerProposals',
+                            'PUT /kemnakerProposals/{id}',
+                            'DELETE /kemnakerProposals/{id}'
                         ]
                     ],
                     'authentication' => 'Required: Bearer token or whitelisted IP'

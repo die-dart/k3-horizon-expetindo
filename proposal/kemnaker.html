@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kemnaker - Ahli K3 Muda Lingkungan Kerja Lingker | PT Horizon Expetindo</title>
+    <link rel="icon" href="../assets/images/logo-he.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="proposal.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Loading Screen Styles -->
+    <style>
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #eee;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="page-loader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <div id="main-content">
+
+        <!-- ===== NAVIGATION BAR ===== -->
+        <nav class="navbar" id="navbar">
+            <div class="navbar-container">
+                <a href="../index.html" class="navbar-brand">
+                    <img src="../assets/images/header-logo-he.png" alt="PT Horizon Solusi Expertindo Logo"
+                        class="navbar-logo">
+                </a>
+
+                <div class="navbar-menu" id="nav-menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="../index.html" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="../about.html" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="../services.html" class="nav-link">Layanan</a></li>
+                        <li class="nav-item"><a href="../gallery.html" class="nav-link">Galeri</a></li>
+                        <li class="nav-item"><a href="../blog.html" class="nav-link">Berita</a></li>
+                    </ul>
+                    <a href="#contact" class="btn-contact">Hubungi Kami</a>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 1. HERO / HEADER SECTION -->
+        <header class="proposal-hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-meta-wrapper">
+                        <nav class="breadcrumb">
+                            <a href="../index.html">Beranda</a>
+                            <span>&gt;</span>
+                            <a href="../services.html">Layanan</a>
+                            <span>&gt;</span>
+                        </nav>
+                        <div class="category-badge">Sertifikasi Kemnaker</div>
+                    </div>
+                    <h1 class="hero-title">Ahli K3 Muda Lingkungan Kerja Lingker</h1>
+                    <p class="hero-subtitle"></p>
+
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-proposal"><i class="fas fa-download"></i> Unduh Proposal</a>
+                        <a href="#" class="btn-online">Daftar Online</a>
+                        <a href="#" class="btn-offline">Daftar Offline</a>
+                    </div>
+                </div>
+                <!-- Placeholder image or generic -->
+                <div class="hero-image">
+                    <img src="../assets/images/muda-linker.png" alt="Higiene Industri">
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. TRAINING OVERVIEW SECTION -->
+        <section class="overview-section">
+            <div class="container">
+                <div class="section-grid">
+                    <div class="content-block">
+                        <h2>Deskripsi Pelatihan</h2>
+                        <p>Keselamatan dan Kesehatan Kerja (K3) merupakan pilar utama dalam menjaga produktivitas serta
+                            kesejahteraan karyawan. Meski regulasi seperti UU No. 1 Tahun 1970 telah lama diterapkan,
+                            perkembangan teknologi dan dinamika dunia kerja modern menciptakan tantangan baru yang
+                            kompleks.
+                            Hal ini memicu urgensi akan hadirnya ahli K3 muda yang memiliki pemahaman teknologi terkini
+                            dan
+                            perspektif inovatif. Kehadiran mereka sangat krusial karena kemampuan adaptasi yang cepat
+                            dalam
+                            menerapkan praktik keselamatan yang efektif. Oleh karena itu, membina talenta muda di bidang
+                            K3
+                            bukan sekadar pemenuhan regulasi, melainkan investasi strategis jangka panjang untuk menekan
+                            risiko kerja sekaligus meningkatkan efisiensi dan reputasi perusahaan.</p>
+                        <h2 style="margin-top: 1.5rem;">Dasar Hukum</h2>
+                        <p>-----.</p>
+                    </div>
+
+                    <!-- 3. INFORMATION GRID / TABLE -->
+                    <div class="sidebar-column"
+                        style="display: flex; flex-direction: column; gap: 2rem; position: sticky; top: 100px;">
+                        <div class="info-card">
+                            <h3
+                                style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                                PERSYARATAN</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Pendidikan Min. D3/S1</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Umur Min. 21 Tahun</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Scan Ijazah Asli</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Pas Foto Background Merah</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Scan KTP Asli</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3
+                                style="margin-bottom: 1.5rem; color: #333; font-weight: 600; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">
+                                FASILITAS</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Sertifikat Pelatihan</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Sertifikat Kemnaker RI (Jika Kompeten)</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Training kit</span>
+                                </li>
+                                <li style="margin-bottom: 1rem; display: flex; align-items: center; color: #555;">
+                                    <i class="fas fa-check-circle"
+                                        style="color: #27ae60; margin-right: 12px; font-size: 1.1rem;"></i>
+                                    <span>Materi Pelatihan</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. TRAINING MATERIALS / SYLLABUS -->
+        <section class="syllabus-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>MATERI PELATIHAN</h2>
+                    <p>Kurikulum komprehensif yang disusun berdasarkan standar kompetensi.</p>
+                </div>
+
+                <div class="syllabus-table-container">
+                    <table class="syllabus-table">
+                        <thead>
+                            <tr class="header-row-1">
+                                <th>MATERI</th>
+                                <th colspan="2">JP</th>
+                            </tr>
+                            <tr>
+                                <th class="section-header dark" style="text-align: center;">Kelompok Dasar</th>
+                                <th>Teori</th>
+                                <th>Praktik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="content-row">
+                                <td>
+                                    Peraturan Perundang-undangan K3:<br>
+                                    a. Kebijakan Umum Pelaksanaan Pembinaan dan Pengawasan K3;<br>
+                                    b. Persyaratan K3 Lingkungan Kerja
+                                </td>
+                                <td>5</td>
+                                <td>-</td>
+                            </tr>
+
+                            <!-- Kelompok Inti Header -->
+                            <tr>
+                                <td class="section-header dark" colspan="3" style="text-align: center;">Kelompok Inti
+                                </td>
+                            </tr>
+
+                            <!-- Kelompok Inti Content -->
+                            <tr class="content-row">
+                                <td>Program Higiene Industri: Antisipasi, Rekognisi, Evaluasi dan pengendalian bahaya di
+                                    tempat kerja</td>
+                                <td>3</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="content-row">
+                                <td>Pengenalan resiko kesehatan dan promosi kesehatan kerja</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="content-row">
+                                <td>Sistem Informasi Lingkungan Kerja</td>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="content-row">
+                                <td>Teknik Pengumpulan Sampel Faktor Fisika, Kimia, Biologi, Ergonomi dan Psikologi</td>
+                                <td>3</td>
+                                <td>7</td>
+                            </tr>
+                            <tr class="content-row">
+                                <td>Ventilasi Industri</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+
+                            <!-- Evaluasi -->
+                            <tr class="evaluasi-row">
+                                <td>Evaluasi</td>
+                                <td>2</td>
+                                <td>5</td>
+                            </tr>
+
+                            <!-- Jumlah -->
+                            <tr class="jumlah-row">
+                                <td>JUMLAH</td>
+                                <td colspan="2">40</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SCHEDULE & LOCATION -->
+        <section class="schedule-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Jadwal & Lokasi</h2>
+                    <p>Pilih jadwal terdekat yang sesuai dengan waktu Anda.</p>
+                </div>
+
+                <div class="schedule-card">
+                    <div class="schedule-info">
+                        <div class="schedule-box">
+                            <h4>Tanggal</h4>
+                            <p>Coming Soon</p>
+                        </div>
+                        <div class="schedule-box">
+                            <h4>Lokasi</h4>
+                            <p>Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="schedule-status">
+                        <span class="category-badge" style="background: #27ae60; color: white;">Open Registration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. DETAILED SCHEDULE & REGISTRATION -->
+        <section class="schedule-new-section">
+            <div class="container">
+                <div class="schedule-grid-new">
+                    <!-- ONLINE CLASS CARD -->
+                    <div class="schedule-card-modern">
+                        <div class="card-top-header">
+                            <span class="class-type-badge">Online Class</span>
+                        </div>
+                        <img src="../assets/images/sample-brosur.jpg" alt="Brosur Online" class="card-brochure-image">
+                        <div class="card-footer">
+                            <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
+                            <div class="footer-links">
+                                <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
+                                <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166
+                                    2025</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OFFLINE CLASS CARD -->
+                    <div class="schedule-card-modern">
+                        <div class="card-top-header">
+                            <span class="class-type-badge">Offline Class</span>
+                        </div>
+                        <img src="../assets/images/sample-brosur.jpg" alt="Brosur Offline" class="card-brochure-image">
+                        <div class="card-footer">
+                            <a href="#" class="btn-join-class">JOIN OUR CLASS</a>
+                            <div class="footer-links">
+                                <a href="#" class="footer-link-item"><i class="fas fa-globe"></i> horizonexpert.id</a>
+                                <a href="#" class="footer-link-item"><i class="fab fa-whatsapp"></i> +62 822 6166
+                                    2025</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TRAINING BENEFITS SECTION -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Manfaat Pelatihan</h2>
+                    <p>Mengapa Anda harus mengikuti program pelatihan ini bersama kami?</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                        <h3>Pengakuan Resmi</h3>
+                        <p>Mendapatkan sertifikat resmi yang diakui secara nasional.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Kepatuhan Regulasi</h3>
+                        <p>Memastikan kepatuhan terhadap regulasi dan standar K3 yang berlaku.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
+                        <h3>Kompetensi Teknis</h3>
+                        <p>Meningkatkan keterampilan teknis di bidang Higiene Industri.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Peluang Karir</h3>
+                        <p>Meningkatkan potensi karir di bidang K3 dan Lingkungan Kerja.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column footer-brand">
+                    <h3 class="footer-brand-title">PT Horizon Solusi Expertindo</h3>
+                    <p class="footer-brand-text">Pusat pelatihan dan sertifikasi kompetensi terpercaya untuk kemajuan
+                        karier
+                        dan bisnis Anda.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html" class="footer-link">Pelatihan BNSP</a></li>
+                        <li><a href="services.html" class="footer-link">Sertifikasi Kemnaker</a></li>
+                        <li><a href="services.html" class="footer-link">Konsultasi K3</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Kontak</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:admin@horizonexpert.id" class="footer-link">Email Kami</a></li>
+                        <li><a href="index.html#contact" class="footer-link">Lokasi Kantor</a></li>
+                        <li><a href="https://wa.me/6282261662025" class="footer-link">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Perusahaan</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Tentang Kami</a></li>
+                        <li><a href="index.html#blog" class="footer-link">Blog & Artikel</a></li>
+                        <li><a href="gallery.html" class="footer-link">Galeri Foto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Mobile Menu Script -->
+        <script>
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
+        <!-- Kemnaker Proposal API Integration -->
+        <script src="../js/kemnaker-proposal.js"></script>
+
+    </div><!-- /#main-content -->
+
+    <!-- Loading Screen Script -->
+    <script>
+        window.windowLoaded = false;
+        window.dataLoaded = false;
+
+        function checkReady() {
+            if (window.windowLoaded && window.dataLoaded) {
+                hideLoader();
+            }
+        }
+
+        function hideLoader() {
+            const loader = document.getElementById("page-loader");
+            const content = document.getElementById("main-content");
+
+            if (loader && loader.style.display !== "none") {
+                loader.style.display = "none";
+                content.style.display = "block";
+                setTimeout(() => {
+                    content.style.opacity = "1";
+                }, 50);
+            }
+        }
+
+        // Expose function for API script to call
+        window.markDataLoaded = function () {
+            window.dataLoaded = true;
+            checkReady();
+        };
+
+        window.addEventListener("load", function () {
+            window.windowLoaded = true;
+            checkReady();
+
+            // Fallback: If data loading takes too long (e.g. API error), force show content after 5 seconds
+            setTimeout(() => {
+                if (!window.dataLoaded) {
+                    console.warn("Data loading timed out or failed. Forcing content display.");
+                    hideLoader();
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>
