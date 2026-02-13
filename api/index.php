@@ -24,6 +24,7 @@ require_once __DIR__ . '/ImageCategory.php';
 require_once __DIR__ . '/ProposalCategory.php';
 require_once __DIR__ . '/BnspProposal.php';
 require_once __DIR__ . '/KemnakerProposal.php';
+require_once __DIR__ . '/ImageProxy.php';
 
 // Enable CORS
 enableCORS();
@@ -52,6 +53,13 @@ $path = trim($path, '/');
 $pathParts = array_filter(explode('/', $path));
 $resource = $pathParts[0] ?? '';
 $id = $pathParts[1] ?? null;
+
+// Handle image proxy BEFORE authentication (public access)
+if ($resource === 'imageProxy' && $method === 'GET') {
+    $proxy = new ImageProxy();
+    $proxy->handle();
+    exit;
+}
 
 // Authentication - all endpoints require auth
 $auth = authenticate();

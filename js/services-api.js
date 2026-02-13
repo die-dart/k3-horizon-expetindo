@@ -170,8 +170,9 @@ function formatGoogleDriveUrl(url) {
     }
 
     if (fileId) {
-        // Use thumbnail format with large size - better CORS support
-        return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+        // Route through PHP image proxy to avoid Google Drive 429 rate limiting
+        const driveUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
+        return `${API_BASE_URL}/imageProxy?url=${encodeURIComponent(driveUrl)}`;
     }
 
     // If it's already a direct link or different format
@@ -292,19 +293,15 @@ function renderProgramCards(proposals) {
 function createProgramCard(proposal) {
     const slug = proposal.categorySlug;
     const details = CATEGORY_DETAILS[slug] || {};
-    // If we have a mapped title (e.g. Sertifikasi BNSP), use it. Otherwise use api value.
     const categoryLabel = details.title || proposal.proposal_category;
-
     const description = sanitizeDescription(proposal.training_description || '');
-
-    // Choose appropriate image placeholder
     const imageSrc = proposal.image || getDefaultImage(proposal.type);
 
     return `
         <div class="program-card" data-category="${proposal.categorySlug}">
             <div class="card-image-wrapper">
                 <img src="${imageSrc}" alt="${proposal.title}" class="card-image" 
-                     onerror="this.src='assets/images/logo-he.png'">
+                     onerror="this.onerror=null;this.src='assets/images/logo-he.png'">
             </div>
             <div class="card-badges">
                 <span class="badge-category">${categoryLabel}</span>

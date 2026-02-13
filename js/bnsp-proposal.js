@@ -81,7 +81,8 @@ function populateBnspProposal(proposal) {
         }
 
         if (fileId) {
-            return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+            const driveUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
+            return `${API_BASE_URL}/imageProxy?url=${encodeURIComponent(driveUrl)}`;
         }
 
         return url;

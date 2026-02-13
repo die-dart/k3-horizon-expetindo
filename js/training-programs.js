@@ -87,7 +87,8 @@ function formatGoogleDriveUrl(url) {
     }
 
     if (fileId) {
-        return `https://drive.google.com/thumbnail?id=${fileId}&sz=w500`;
+        const driveUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
+        return `${API_BASE_URL}/imageProxy?url=${encodeURIComponent(driveUrl)}`;
     }
     return url;
 }
@@ -111,7 +112,8 @@ function renderCarouselCards(proposals) {
         return `
             <article class="training-card">
                 <div class="card-image-wrapper">
-                    <img src="${proposal.image}" alt="${proposal.title}" class="card-image" onerror="this.src='assets/images/logo-he.png'">
+                    <img src="${proposal.image}" alt="${proposal.title}" class="card-image" 
+                         onerror="this.onerror=null;this.src='assets/images/logo-he.png'">
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">${proposal.title}</h3>
