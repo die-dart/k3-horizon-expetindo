@@ -9,7 +9,7 @@
  * - Touch swipe support
  */
 
-const API_BASE_URL = `http://${window.location.hostname}:9999/api`;
+const API_BASE_URL = 'https://horizonexpert.id/api';
 
 document.addEventListener('DOMContentLoaded', function () {
     initCarousel();

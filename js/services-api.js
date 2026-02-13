@@ -4,7 +4,7 @@
  * and dynamically populates the services page
  */
 
-const API_BASE_URL = `http://${window.location.hostname}:9999/api`;
+const API_BASE_URL = 'https://horizonexpert.id/api';
 
 // Descriptions and Titles for categories
 // Keys must match the generated slugs
