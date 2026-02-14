@@ -61,8 +61,19 @@ if ($resource === 'imageProxy' && $method === 'GET') {
     exit;
 }
 
-// Authentication - all endpoints require auth
-$auth = authenticate();
+// Public GET endpoints - no authentication required
+// These are read-only endpoints accessed by frontend visitors
+$publicGetResources = [
+    'articleCategorys', 'articles', 'galleries', 'imageCategorys',
+    'proposalCategorys', 'bnspProposals', 'kemnakerProposals', 'formRegisters'
+];
+
+$isPublicGet = ($method === 'GET' && in_array($resource, $publicGetResources));
+
+// Authentication - required for non-public endpoints (POST, PUT, DELETE)
+if (!$isPublicGet) {
+    $auth = authenticate();
+}
 
 // Router - Match resource and method
 try {
