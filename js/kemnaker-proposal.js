@@ -151,6 +151,18 @@ function populateKemnakerProposal(proposal) {
         const locationBox = document.querySelector('.schedule-box:last-child p');
         if (locationBox) locationBox.textContent = proposal.location1 || 'Coming Soon';
     }
+
+    // Download proposal button
+    const downloadBtn = document.getElementById('btn-download-proposal');
+    if (downloadBtn) {
+        if (proposal.download_proposal) {
+            downloadBtn.href = proposal.download_proposal;
+            downloadBtn.target = '_blank';
+            downloadBtn.rel = 'noopener noreferrer';
+        } else {
+            downloadBtn.style.display = 'none';
+        }
+    }
 }
 
 /**

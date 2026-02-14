@@ -20,7 +20,7 @@ class BnspProposal {
                 SELECT id, title, image_title, proposal_category, training_description, legal_basis,
                        `condition`, facility, unit_code, unit_title, 
                        timetable1, timetable2, location1, location2, image_online, image_offline,
-                       created_at, updated_at 
+                       download_proposal, created_at, updated_at 
                 FROM bnsp_proposals 
                 WHERE deleted_at IS NULL
                 ORDER BY created_at DESC
@@ -44,7 +44,7 @@ class BnspProposal {
                 SELECT id, title, image_title, proposal_category, training_description, legal_basis,
                        `condition`, facility, unit_code, unit_title, 
                        timetable1, timetable2, location1, location2, image_online, image_offline,
-                       created_at, updated_at 
+                       download_proposal, created_at, updated_at 
                 FROM bnsp_proposals 
                 WHERE id = :id AND deleted_at IS NULL
             ");
@@ -99,15 +99,16 @@ class BnspProposal {
             $location2 = $data['location2'] ?? null;
             $imageOnline = isset($data['image_online']) ? sanitizeString($data['image_online']) : null;
             $imageOffline = isset($data['image_offline']) ? sanitizeString($data['image_offline']) : null;
+            $downloadProposal = isset($data['download_proposal']) ? sanitizeString($data['download_proposal']) : null;
             
             $stmt = $this->db->prepare("
                 INSERT INTO bnsp_proposals 
                 (title, image_title, proposal_category, training_description, legal_basis, `condition`, facility,
                  unit_code, unit_title, timetable1, timetable2, location1, location2, image_online, image_offline,
-                 created_at, updated_at) 
+                 download_proposal, created_at, updated_at) 
                 VALUES (:title, :image_title, :proposal_category, :training_description, :legal_basis, :condition, :facility,
                         :unit_code, :unit_title, :timetable1, :timetable2, :location1, :location2, :image_online, :image_offline,
-                        NOW(), NOW())
+                        :download_proposal, NOW(), NOW())
             ");
             
             $stmt->execute([
@@ -125,7 +126,8 @@ class BnspProposal {
                 'location_1' => $location1,
                 'location_2' => $location2,
                 'image_online' => $imageOnline,
-                'image_offline' => $imageOffline
+                'image_offline' => $imageOffline,
+                'download_proposal' => $downloadProposal
             ]);
             
             $id = $this->db->lastInsertId();
@@ -182,7 +184,8 @@ class BnspProposal {
                 'location_1' => 'location_1',
                 'location_2' => 'location_2',
                 'image_online' => 'image_online',
-                'image_offline' => 'image_offline'
+                'image_offline' => 'image_offline',
+                'download_proposal' => 'download_proposal'
             ];
             
             foreach ($fieldMap as $dataKey => $dbColumn) {

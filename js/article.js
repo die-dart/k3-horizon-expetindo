@@ -100,18 +100,8 @@ function setLoadingState(loading) {
     if (!container) return;
 
     if (loading) {
-        container.innerHTML = `
-            <div class="loading-state" style="text-align: center; padding: 10rem 2rem;">
-                <div class="spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-left-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                <p style="color: #6b7280; margin-top: 1rem; font-size: 1.2rem;">Memuat artikel...</p>
-            </div>
-            <style>
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-            </style>
-        `;
+        container.innerHTML = createInlineLoaderHTML('lottie-article-inline', 'Memuat artikel...', 'padding: 10rem 2rem;');
+        initLottieLoader('lottie-article-inline', 'assets/loading.json');
     }
 }
 

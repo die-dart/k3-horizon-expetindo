@@ -15,6 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <!-- Lottie Loader -->
+    <link rel="stylesheet" href="css/lottie-loader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="js/lottie-loader.js"></script>
 
 </head>
 
@@ -47,10 +51,12 @@
     </header>
 
     <main id="article-content">
-        <!-- Skeleton / Loading State -->
-        <div class="article-loading" style="text-align: center; padding: 10rem 2rem;">
-            <h2>Loading Article...</h2>
+        <!-- Lottie Loading State -->
+        <div class="loading-state" style="padding: 10rem 2rem;">
+            <div class="lottie-container" id="lottie-article-loading"></div>
+            <p>Memuat artikel...</p>
         </div>
+        <script>initLottieLoader('lottie-article-loading', 'assets/loading.json');</script>
     </main>
 
     <!-- ===== FOOTER ===== -->

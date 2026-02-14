@@ -1,0 +1,50 @@
+/* ===== LOTTIE LOADER STYLES ===== */
+
+/* Fullscreen Page Loader Overlay */
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#page-loader .lottie-container {
+    width: 200px;
+    height: 200px;
+}
+
+/* Main content hidden until loaded */
+#main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Inline Loading State (for article, gallery, etc.) */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.loading-state .lottie-container {
+    width: 150px;
+    height: 150px;
+}
+
+.loading-state p {
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
