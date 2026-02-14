@@ -736,10 +736,6 @@ body {
         border-bottom-right-radius: 50px;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
     .cta-buttons {
         flex-direction: column;
     }
@@ -1111,12 +1107,212 @@ body {
 
 /* ===== MOBILE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-        /* Ensure title fits */
+
+    /* --- 1. BREADCRUMB / NAVBAR --- */
+    .hero-meta-wrapper {
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        justify-content: center;
+        overflow: hidden;
+        max-width: 100%;
     }
 
+    .breadcrumb {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+        gap: 0.5rem;
+        padding: 0.5rem 1.2rem;
+        white-space: nowrap;
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
 
+    .breadcrumb a,
+    .breadcrumb span {
+        white-space: nowrap;
+    }
+
+    .category-badge {
+        font-size: clamp(0.7rem, 2.8vw, 0.9rem);
+        padding: 6px 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .breadcrumb .category-badge {
+        font-size: clamp(0.7rem, 2.8vw, 0.85rem);
+        padding: 5px 12px;
+    }
+
+    /* --- 2. JUDUL HALAMAN --- */
+    .hero-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        line-height: 1.2;
+        padding: 0 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    /* --- 3 & 4. TOMBOL: Unduh Proposal, Daftar Online, Daftar Offline --- */
+    .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .btn-proposal {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+
+    .btn-online,
+    .btn-offline {
+        flex: 1 1 0;
+        justify-content: center;
+        text-align: center;
+        padding: 0.7rem 0.5rem;
+        font-size: 0.85rem;
+        box-sizing: border-box;
+    }
+
+    /* --- 5. GAMBAR ILUSTRASI --- */
+    .hero-image {
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        margin-top: 1.5rem;
+    }
+
+    .hero-image:hover {
+        transform: none;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* --- 6. HERO SECTION SPACING --- */
+    .proposal-hero {
+        padding: 100px 0 50px;
+        overflow: hidden;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* --- SECTION SPACING MOBILE --- */
+    .overview-section {
+        padding: 50px 0;
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .content-block h2 {
+        font-size: 1.6rem;
+    }
+
+    .content-block p {
+        font-size: 1rem;
+    }
+
+    .info-card {
+        position: static;
+        padding: 1.5rem;
+    }
+
+    .section-head h2 {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    .section-head p {
+        font-size: 1rem;
+    }
+
+    .benefits-section {
+        padding: 50px 0;
+    }
+
+    .section-head {
+        margin-bottom: 2.5rem;
+    }
+
+    .benefit-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .benefit-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .syllabus-section {
+        padding: 50px 0;
+    }
+
+    .schedule-section {
+        padding: 50px 0;
+    }
+
+    .schedule-card {
+        padding: 2rem;
+    }
+
+    .schedule-info {
+        gap: 2.5rem;
+    }
+
+    .schedule-box {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .schedule-box:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .schedule-status {
+        margin-top: 1.5rem;
+    }
+
+    .cta-container h2 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .cta-section {
+        padding: 60px 0;
+    }
 }
 
 /* ===== HERO META LAYOUT (Restore for alignment) ===== */
