@@ -20,7 +20,7 @@ class KemnakerProposal {
                 SELECT id, title, image_title, proposal_category, training_description, legal_basis,
                        `condition`, facility, materi_title, materi_teori, materi_praktik,
                        timetable1, timetable2, location1, location2, image_online, image_offline,
-                       created_at, updated_at 
+                       download_proposal, created_at, updated_at 
                 FROM kemnaker_proposals 
                 WHERE deleted_at IS NULL
                 ORDER BY created_at DESC
@@ -44,7 +44,7 @@ class KemnakerProposal {
                 SELECT id, title, image_title, proposal_category, training_description, legal_basis,
                        `condition`, facility, materi_title, materi_teori, materi_praktik,
                        timetable1, timetable2, location1, location2, image_online, image_offline,
-                       created_at, updated_at 
+                       download_proposal, created_at, updated_at 
                 FROM kemnaker_proposals 
                 WHERE id = :id AND deleted_at IS NULL
             ");
@@ -100,15 +100,16 @@ class KemnakerProposal {
             $location2 = $data['location2'] ?? null;
             $imageOnline = isset($data['image_online']) ? sanitizeString($data['image_online']) : null;
             $imageOffline = isset($data['image_offline']) ? sanitizeString($data['image_offline']) : null;
+            $downloadProposal = isset($data['download_proposal']) ? sanitizeString($data['download_proposal']) : null;
             
             $stmt = $this->db->prepare("
                 INSERT INTO kemnaker_proposals 
                 (title, image_title, proposal_category, training_description, legal_basis, `condition`, facility,
                  materi_title, materi_teori, materi_praktik, timetable1, timetable2, location1, location2, image_online, image_offline,
-                 created_at, updated_at) 
+                 download_proposal, created_at, updated_at) 
                 VALUES (:title, :image_title, :proposal_category, :training_description, :legal_basis, :condition, :facility,
                         :materi_title, :materi_teori, :materi_praktik, :timetable1, :timetable2, :location1, :location2, :image_online, :image_offline,
-                        NOW(), NOW())
+                        :download_proposal, NOW(), NOW())
             ");
             
             $stmt->execute([
@@ -127,7 +128,8 @@ class KemnakerProposal {
                 'location_1' => $location1,
                 'location_2' => $location2,
                 'image_online' => $imageOnline,
-                'image_offline' => $imageOffline
+                'image_offline' => $imageOffline,
+                'download_proposal' => $downloadProposal
             ]);
             
             $id = $this->db->lastInsertId();
@@ -185,7 +187,8 @@ class KemnakerProposal {
                 'location_1' => 'location_1',
                 'location_2' => 'location_2',
                 'image_online' => 'image_online',
-                'image_offline' => 'image_offline'
+                'image_offline' => 'image_offline',
+                'download_proposal' => 'download_proposal'
             ];
             
             foreach ($fieldMap as $dataKey => $dbColumn) {

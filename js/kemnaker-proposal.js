@@ -3,7 +3,7 @@
  * Fetches data from the PHP API and populates the Kemnaker proposal page
  */
 
-const API_BASE_URL = 'https://horizonexpert.id/api';
+const API_BASE_URL = 'http://localhost:9999/api';
 
 /**
  * Fetch Kemnaker proposal by ID from URL parameter
@@ -150,6 +150,18 @@ function populateKemnakerProposal(proposal) {
     if (proposal.location1 || proposal.location2) {
         const locationBox = document.querySelector('.schedule-box:last-child p');
         if (locationBox) locationBox.textContent = proposal.location1 || 'Coming Soon';
+    }
+
+    // Download proposal button
+    const downloadBtn = document.getElementById('btn-download-proposal');
+    if (downloadBtn) {
+        if (proposal.download_proposal) {
+            downloadBtn.href = proposal.download_proposal;
+            downloadBtn.target = '_blank';
+            downloadBtn.rel = 'noopener noreferrer';
+        } else {
+            downloadBtn.style.display = 'none';
+        }
     }
 }
 
