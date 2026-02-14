@@ -170,11 +170,12 @@ function setLoadingState(loading) {
 
     if (galleryGrid && loading) {
         galleryGrid.innerHTML = `
-            <div class="loading-state" style="grid-column: 1/-1; text-align: center; padding: 3rem;">
-                <div class="spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(0,0,0,0.1); border-left-color: var(--primary-blue); border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1rem;">Memuat galeri...</p>
+            <div class="loading-state" style="grid-column: 1/-1;">
+                <div class="lottie-container" id="lottie-gallery-loading"></div>
+                <p>Memuat galeri...</p>
             </div>
         `;
+        initLottieLoader('lottie-gallery-loading', 'assets/loading.json');
     }
 }
 

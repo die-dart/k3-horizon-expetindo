@@ -3,7 +3,7 @@
  * Fetches data from the PHP API and populates the BNSP proposal page
  */
 
-const API_BASE_URL = 'http://localhost:9999/api';
+const API_BASE_URL = 'https://horizonexpert.id/api';
 
 /**
  * Fetch BNSP proposal by ID from URL parameter

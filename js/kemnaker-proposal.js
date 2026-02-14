@@ -3,7 +3,7 @@
  * Fetches data from the PHP API and populates the Kemnaker proposal page
  */
 
-const API_BASE_URL = 'http://localhost:9999/api';
+const API_BASE_URL = 'https://horizonexpert.id/api';
 
 /**
  * Fetch Kemnaker proposal by ID from URL parameter
