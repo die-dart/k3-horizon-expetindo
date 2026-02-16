@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Expert Indonesia | Jasa K3 & QHSE Profesional</title>
+    <title>Horizon Solusi Expertindo | Jasa K3 & QHSE Profesional</title>
     <meta name="description"
-        content="Horizon Expert Indonesia menyediakan jasa K3, QHSE, SMK3, HIRADC, and nationally certified training services.">
+        content="Horizon Solusi Expertindo menyediakan jasa K3, QHSE, SMK3, HIRADC, and nationally certified training services.">
     <link rel="icon" href="assets/images/logo-he.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/logo-he-w.png">
     <link rel="stylesheet" href="css/navbar.css">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/fab.css">
+    <link rel="stylesheet" href="css/testimonials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -168,16 +169,20 @@
         </section>
 
         <!-- ===== SECTION: CLIENT REVIEWS & TESTIMONIALS ===== -->
-        <section id="reviews-testimonials">
+        <section id="reviews-testimonials" class="testimonial-dark">
             <div class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">Dipercaya oleh Para Ahli</h2>
                 </div>
 
-                <!-- Third-party Widget: Elfsight Google Reviews -->
-                <div class="elfsight-widget-wrapper">
-                    <script src="https://elfsightcdn.com/platform.js" async></script>
-                    <div class="elfsight-app-c1520bd2-de7e-4a80-8f46-879a8af270fa" data-elfsight-app-lazy></div>
+                <!-- Google Rating Summary Badge -->
+                <div class="google-rating-summary" id="google-rating-summary"></div>
+
+                <!-- Reviews Horizontal Slider -->
+                <div class="reviews-slider">
+                    <div class="reviews-track" id="google-reviews-container">
+                        <!-- Cards rendered by js/google-reviews.js -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -345,6 +350,7 @@
     <!-- ===== SCRIPTS ===== -->
     <script src="js/navbar.js"></script>
     <script src="js/training-programs.js"></script>
+    <script src="js/google-reviews.js"></script>
     <script>
         // WhatsApp Contact Form Handler
         document.querySelector('.contact-form').addEventListener('submit', function (e) {
